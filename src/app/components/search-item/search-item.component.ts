@@ -6,10 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-item.component.scss']
 })
 export class SearchItemComponent implements OnInit {
+  public age: number = Math.random() * (500);
+  public wasSeen: boolean = false;
 
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
+  public getColor(): string {
+    if (this.age < 7) {
+      return 'blue';
+    } else if (this.age < 30) {
+      return 'green';
+    } else if (this.age < 182) {
+      return 'yellow';
+    } else { return 'red'; }
+
+  }
 }

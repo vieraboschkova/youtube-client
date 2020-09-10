@@ -33,7 +33,7 @@ interface IThumbnails {
     medium: IThumbnailItem;
     high: IThumbnailItem;
     standard: IThumbnailItem;
-    maxres: IThumbnailItem; 
+    maxres: IThumbnailItem;
 }
 
 interface IThumbnailItem {

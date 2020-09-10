@@ -17,4 +17,8 @@
     </form>
 
     <p>You are searching for: {{searchValue}}</p>
+    <app-search-filter *ngIf = "searchIsSet; else noSearch"></app-search-filter>
+    <ng-template #noSearch>
+        <p>Go Search!</p>
+    </ng-template>
 </div>

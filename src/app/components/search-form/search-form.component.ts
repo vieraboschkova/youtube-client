@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-form.component.scss']
 })
 export class SearchFormComponent implements OnInit {
-  searchValue:string = ''
+  public searchValue: string = '';
+  public searchIsSet: boolean = false;
 
   constructor() { }
 
@@ -15,6 +16,7 @@ export class SearchFormComponent implements OnInit {
 
   public onSearchClick() {
     console.log('clicked search');
+    this.searchIsSet = true;
   }
 
 }
