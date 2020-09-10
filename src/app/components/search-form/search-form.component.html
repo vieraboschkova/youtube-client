@@ -1,24 +1,35 @@
-<div>
-    <form>
-        <label>
 
-        </label>
-        <input
-            name = "search"
-            type="text"
-            [(ngModel)]="searchValue"   
-        >
-        <button
-            [disabled] = "searchValue === ''"
-            (click) = "onSearchClick()"
-        >
-        search
-        </button>
-    </form>
+<mat-form-field>
+    <mat-label>
 
-    <p>You are searching for: {{searchValue}}</p>
-    <app-search-filter *ngIf = "searchIsSet; else noSearch"></app-search-filter>
-    <ng-template #noSearch>
-        <p>Go Search!</p>
-    </ng-template>
-</div>
+    </mat-label>
+    <input
+        matInput
+        name = "search"
+        type="text"
+        [(ngModel)]="searchValue"   
+    >
+    <button
+        mat-button
+        [disabled] = "searchValue === ''"
+        (click) = "onSearchClick()"
+    >
+    search
+    </button>
+</mat-form-field>
+
+<button 
+    mat-button
+    color="accent"
+    (click) = "showFilter = !showFilter"
+>
+    Show / Hide search filter
+</button>
+
+<p>You are searching for: {{searchValue}}</p>
+
+<app-search-filter *ngIf = "showFilter; else noSearch"></app-search-filter>
+<ng-template #noSearch>
+    <p>No filters available</p>
+</ng-template>
+

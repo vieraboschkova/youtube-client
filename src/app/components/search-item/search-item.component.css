@@ -1,6 +1,9 @@
 .item {
   border-bottom-width: 10px;
   border-bottom-style: solid;
+  width: 200px;
+  margin: 20px;
+  height: 250px;
 }
 
 .conditional {

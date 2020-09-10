@@ -8,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class SearchFormComponent implements OnInit {
   public searchValue: string = '';
   public searchIsSet: boolean = false;
+  public showFilter: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  public onSearchClick() {
+  public onSearchClick(): void {
     console.log('clicked search');
     this.searchIsSet = true;
   }
