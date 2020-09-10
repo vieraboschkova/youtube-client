@@ -1,1 +1,20 @@
-<p>search-form works!</p>
+<div>
+    <form>
+        <label>
+
+        </label>
+        <input
+            name = "search"
+            type="text"
+            [(ngModel)]="searchValue"   
+        >
+        <button
+            [disabled] = "searchValue === ''"
+            (click) = "onSearchClick()"
+        >
+        search
+        </button>
+    </form>
+
+    <p>You are searching for: {{searchValue}}</p>
+</div>
