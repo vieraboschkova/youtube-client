@@ -1,8 +1,8 @@
+<fa-icon [icon]="faYoutube" class="header-item"></fa-icon>
+<form class="header-item">
+    <label>
 
-<mat-form-field>
-    <mat-label>
-
-    </mat-label>
+    </label>
     <input
         matInput
         name = "search"
@@ -16,9 +16,10 @@
     >
     search
     </button>
-</mat-form-field>
+</form>
 
 <button 
+    class="header-item"
     mat-button
     color="accent"
     (click) = "showFilter = !showFilter"
@@ -26,10 +27,10 @@
     Show / Hide search filter
 </button>
 
-<p>You are searching for: {{searchValue}}</p>
+<!-- <p>You are searching for: {{searchValue}}</p> -->
 
-<app-search-filter *ngIf = "showFilter; else noSearch"></app-search-filter>
-<ng-template #noSearch>
+<!-- <app-search-filter *ngIf = "showFilter; else noSearch"></app-search-filter> -->
+<!-- <ng-template #noSearch>
     <p>No filters available</p>
-</ng-template>
+</ng-template> -->
 

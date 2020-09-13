@@ -7,4 +7,7 @@
 
 .header-container {
   background-color: grey;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  justify-content: center;
 }
