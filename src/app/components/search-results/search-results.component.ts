@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { ISearchResponse } from '../../models/search-response.model';
 import { ISearchItem } from 'src/app/models/search-item.model';
 import { response } from './response.module'

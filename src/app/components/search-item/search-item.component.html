@@ -3,12 +3,22 @@
     [ngClass] = "{conditional: wasSeen === false}"
     class="item"    
 >
-    <mat-card-title>Title</mat-card-title>
-    <img mat-card-image>
+    <mat-card-title>{{ item.snippet.title }}</mat-card-title>
+    <img 
+        mat-card-image
+        [src]="item.snippet.thumbnails.default.url"
+    >
     <mat-card-actions>
         button container
     </mat-card-actions>
 
 
 </mat-card>
+
+<!-- <p>{{item.kind}}</p> -->
+        <!-- mat-card-image -->
+        <!-- [src]="item.pathOrStg" BY BINDING--> 
+        <!-- OR -->
+        <!-- src = "{{ item.pathOrStg }}"  STRING INTERPOLATION-->
+
 
