@@ -1,5 +1,11 @@
-<app-search-form class="search-form-container"></app-search-form>
+<app-search-form 
+    class="search-form-container"
+    (showFilterEvent)="filterToggle()"
+>
+</app-search-form>
 <app-login class="login-container"></app-login>
-<!-- <app-search-filter *ngIf = "showFilter; else noSearch"></app-search-filter> -->
-<app-search-filter class="filter"></app-search-filter>
-
+<!-- <app-search-filter *ngIf = "filterDisplay; else noSearch"></app-search-filter> -->
+ <app-search-filter 
+    *ngIf = "filterDisplay"
+    class="filter">
+</app-search-filter>

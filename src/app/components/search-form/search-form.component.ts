@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 // import { IconDefiniton } from '@fortawesome/free-brands-svg-icons'
 @Component({
@@ -9,8 +9,9 @@ import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 export class SearchFormComponent implements OnInit {
   public searchValue: string = '';
   public searchIsSet: boolean = false;
-  public showFilter: boolean = false;
+  // public showFilter: boolean = false;
   public faYoutube = faYoutube;
+  @Output() public showFilterEvent = new EventEmitter<boolean>();
   constructor() { }
 
   ngOnInit(): void {
@@ -19,6 +20,12 @@ export class SearchFormComponent implements OnInit {
   public onSearchClick(): void {
     console.log('clicked search');
     this.searchIsSet = true;
+  }
+
+  public onFilterClick(): void {
+    console.log('clicked filter');
+    // this.showFilter = !this.showFilter;
+    this.showFilterEvent.emit();
   }
 
 }
