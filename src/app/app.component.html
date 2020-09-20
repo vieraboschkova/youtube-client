@@ -1,3 +1,9 @@
-<app-header class="header-container"></app-header>
-<app-search-results class="results-container"></app-search-results>
+<app-header 
+    class="header-container"
+    (showResults)="showResults($event)">
+</app-header>
+<app-search-results 
+    *ngIf="showingResults"
+    class="results-container">
+</app-search-results>
 <!-- <app-dashboard></app-dashboard> -->

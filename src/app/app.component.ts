@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'youtube-client';
+  public title: string = 'youtube-client';
+  public showingResults: boolean = false;
+
+  showResults (keywords) {
+    console.log('showing from app' + keywords);
+    this.showingResults = true;
+  }
 }

@@ -4,6 +4,7 @@
   width: 200px;
   margin: 20px;
   height: 250px;
+  outline: blueviolet solid 2px;
 }
 
 .conditional {

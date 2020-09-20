@@ -1,9 +1,9 @@
 .login-container {
   margin-left: auto;
-}
-
-* {
-  outline: 2px dotted blueviolet;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .search-form-container {
@@ -11,6 +11,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   grid-column-start: 2;
+  align-items: center;
 }
 
 .filter {

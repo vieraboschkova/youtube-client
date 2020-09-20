@@ -1,37 +1,53 @@
-<fa-icon [icon]="faYoutube" class="header-item"></fa-icon>
+<fa-icon 
+    [icon]="faYoutube" 
+    class="header-item">
+</fa-icon>
+
 <form class="header-item">
     <label>
 
     </label>
     <input
         matInput
+        class="search-input"
         name = "search"
         type="text"
-        [(ngModel)]="searchValue"   
+        #searchInput 
     >
     <button
-        mat-button
-        [disabled] = "searchValue === ''"
-        (click) = "onSearchClick()"
-    >
-    search
+        class="search-button"
+        [disabled] = "searchInput.value === ''"
+        (click) = "onSearchClick(searchInput)"
+        type="submit"
+            > Search
     </button>
 </form>
 
 <button 
-    class="header-item"
-    mat-button
+    class="header-item filter-button"
     color="accent"
     (click)="onFilterClick()"
->
-    Show / Hide search filter
+    #filterButton>
+        <fa-icon 
+            class="filter-icon"
+            [icon]="faFilter"> 
+        </fa-icon>
 </button>
 
-<!-- <p>You are searching for: {{searchValue}}</p> -->
+<!-- #searchInput // to use in template then pass in the function as searchInput.value  -->
+<!-- mat-button -->
 
 <!-- <app-search-filter *ngIf = "showFilter; else noSearch"></app-search-filter> -->
 <!-- <ng-template #noSearch>
     <p>No filters available</p>
 </ng-template> -->
-<!-- (click) = "showFilter = !showFilter" -->
 
+<!-- <ng-content></ng-content> -->
+
+<!-- <input
+        matInput
+        name = "search"
+        type="text"
+        [(ngModel)]="searchValue"
+        #searchInput 
+    > -->
