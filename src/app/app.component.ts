@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public title: string = 'youtube-client';
-  public showingResults: boolean = false;
+  public showingResults: boolean = true;
 
   showResults (keywords) {
     console.log('showing from app' + keywords);

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ISearchItem } from 'src/app/models/search-item.model';
+import {faEye, faHeart, faHeartBroken, faCommentAlt, IconDefinition} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-search-item',
@@ -7,8 +8,12 @@ import { ISearchItem } from 'src/app/models/search-item.model';
   styleUrls: ['./search-item.component.scss']
 })
 export class SearchItemComponent implements OnInit {
+  public faEye: IconDefinition = faEye;
+  public faHeart: IconDefinition = faHeart;
+  public faHeartBroken: IconDefinition = faHeartBroken;
+  public faCommentAlt: IconDefinition = faCommentAlt;
   public age: number = Math.random() * (500);
-  public wasSeen: boolean = false;
+  public wasSeen: boolean = true;
   @Input() public item: ISearchItem;
   constructor() { }
 
