@@ -8,8 +8,8 @@ import { Component, Input } from '@angular/core';
 export class AppComponent {
   public title: string = 'youtube-client';
   public showingResults: boolean = true;
-  @Input() public sortType: string;
-  @Input() public sortWord: string;
+  public sortType: string;
+  public sortWord: string;
   showResults (keywords) {
     console.log('showing from app' + keywords);
     this.showingResults = true;

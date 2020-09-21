@@ -26,39 +26,39 @@ export class SearchFormComponent implements
   @ViewChild('searchInput', {static: false}) searchInputValue: ElementRef;
   @ContentChild('filterButton', {static: false}) filterButton: ElementRef;
 
-  constructor() { 
-    console.log('constructor works!');
-  }
+  // constructor() { 
+  //   console.log('constructor works!');
+  // }
 
   ngOnInit(): void { 
     console.log('ngOnInit works!');
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('ngOnChanges works!');
-    console.log(changes);
-  }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   console.log('ngOnChanges works!');
+  //   console.log(changes);
+  // }
 
-  ngDoCheck(): void {
-    console.log('ngDoCheck works!');
-  }
+  // ngDoCheck(): void {
+  //   console.log('ngDoCheck works!');
+  // }
 
-  ngAfterContentInit(): void {
-    console.log('ngAfterContentInit works!');
-  }
-  ngAfterContentChecked(): void {
-    console.log('ngAfterContentChecked works!');
-  }
-  ngAfterViewInit(): void {
-    console.log('ngAfterViewInit works!');
-  }
-  ngAfterViewChecked(): void {
-    console.log('ngAfterViewChecked works!');
-  }
+  // ngAfterContentInit(): void {
+  //   console.log('ngAfterContentInit works!');
+  // }
+  // ngAfterContentChecked(): void {
+  //   console.log('ngAfterContentChecked works!');
+  // }
+  // ngAfterViewInit(): void {
+  //   console.log('ngAfterViewInit works!');
+  // }
+  // ngAfterViewChecked(): void {
+  //   console.log('ngAfterViewChecked works!');
+  // }
 
-  ngOnDestroy(): void {
-    console.log('ngOnDestroy works!');
-  }
+  // ngOnDestroy(): void {
+  //   console.log('ngOnDestroy works!');
+  // }
 
   public onSearchClick(searchInputValue: HTMLInputElement): void {
     const input = this.searchInputValue.nativeElement.value;

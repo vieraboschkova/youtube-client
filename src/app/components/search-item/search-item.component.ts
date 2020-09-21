@@ -12,7 +12,7 @@ export class SearchItemComponent implements OnInit {
   public faHeart: IconDefinition = faHeart;
   public faHeartBroken: IconDefinition = faHeartBroken;
   public faCommentAlt: IconDefinition = faCommentAlt;
-  public age: number = Math.random() * (500);
+  // public age: number = Math.random() * (500);
   public wasSeen: boolean = true;
   @Input() public item: ISearchItem;
   constructor() { }
@@ -21,11 +21,13 @@ export class SearchItemComponent implements OnInit {
   }
 
   public getColor(): string {
-    if (this.age < 7) {
+    let timeDifference: number = <any>new Date() - <any>new Date(this.item.snippet.publishedAt)  
+    timeDifference = timeDifference / 86400000;
+    if (timeDifference < 7) {
       return 'blue';
-    } else if (this.age < 30) {
+    } else if (timeDifference < 30) {
       return 'green';
-    } else if (this.age < 182) {
+    } else if (timeDifference < 182) {
       return 'yellow';
     } else { return 'red'; }
 

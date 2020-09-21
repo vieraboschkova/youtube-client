@@ -1,3 +1,4 @@
+import { prepareSyntheticListenerFunctionName } from '@angular/compiler/src/render3/util';
 import { Component, OnInit, Output, ViewChild, EventEmitter, ElementRef } from '@angular/core';
 
 @Component({
@@ -15,13 +16,13 @@ export class SearchFilterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSelectSortType(sortType: string, word?: string) {
-    this.sortingOption = sortType;
-    this.sortingKeyword = word;
-    console.log(sortType);
-    console.log(word);
+
+  public onSelectSortType(sortType: string, word?: string) {
+    console.log("CLICKED" + sortType, word);
     this.sortingTypeEvent.emit(sortType);
     this.sortingWordEvent.emit(word);
+    this.sortingOption = sortType;
+    this.sortingKeyword = word;
     this.sortWordInput.nativeElement.value = '';
   }
 }

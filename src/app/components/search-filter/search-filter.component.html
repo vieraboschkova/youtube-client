@@ -1,13 +1,13 @@
 <div class="sorting-options">
     <p class="filter-item">Sorting by:</p>
     <a 
-        (click) = "onSelectSortType('date')"
+        (click) = "onSelectSortType(this.sortingOption === 'date'? 'dateDown' : 'date')"
         href="#" 
         class="button" 
         class="filter-name filter-item">
         date</a>
     <a 
-        (click) = "onSelectSortType('views')"
+        (click) = "onSelectSortType(this.sortingOption === 'view'? 'viewDown' : 'view')"
         href="#" 
         class="button" 
         class="filter-name filter-item">

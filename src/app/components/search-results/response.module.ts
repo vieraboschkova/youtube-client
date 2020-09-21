@@ -11,7 +11,7 @@ export const response: any = {
         'etag': '"Fznwjl6JEQdo1MGvHOGaz_YanRU/tmmI1yiRrmLWlKikXk1gD3TXsUI"',
         'id': 'YN8zNnV0sK8',
         'snippet': {
-          'publishedAt': '2019-05-30T12:42:19.000Z',
+          'publishedAt': '2020-05-30T12:42:19.000Z',
           'channelId': 'UCg8ss4xW9jASrqWGP30jXiw',
           'title': 'Angular 8 - Быстрый курс за 60 минут',
           'description': 'Полный курс по Angular 8+:\nhttps://clc.to/angular\n\nTelegram: https://teleg.one/js_by_vladilen \nInstagram: https://www.instagram.com/vladilen.minin \nVK: https://vk.com/vladilen.minin \nГруппа VK: https://vk.com/js_by_vladilen \n\nReact Native: мобильная разработка на JavaScript:\nhttps://clc.to/rnative\n\nПоддержать выпуск новых видео:\nЯД: https://money.yandex.ru/to/410013757655670\nPayPal: https://www.paypal.me/vladilenm \n\n30 мая 2019 года бы релиз Angular 8 и я решил записать  по нему быстрый курс. В видео вы узнаете, как Angular работает, как его установить.\nВ результате урока я покажу создание Todo приложения с разными подходами. Разберем работу с сервером, сервисами, пайпами, коммуникацией между компонентами и немного RxJS\n\nИсходный код:\nhttps://github.com/vladilenm/angular8-cc\n\nAngular 8 - Быстрый курс за 60 минут',
@@ -91,7 +91,7 @@ export const response: any = {
         'etag': '"Fznwjl6JEQdo1MGvHOGaz_YanRU/uto79F2R8W05GFpiUAcLdFGs7PQ"',
         'id': 'Fdf5aTYRW0E',
         'snippet': {
-          'publishedAt': '2019-01-23T17:46:58.000Z',
+          'publishedAt': '2020-01-23T17:46:58.000Z',
           'channelId': 'UC29ju8bIPH5as8OGnQzwJyA',
           'title': 'Angular Crash Course',
           'description': 'In this video we will talk about what Angular is and then jump in and build a small app With Angular 7, looking at most of the fundamental concepts like components, services, modules, etc\n\nSponsor:\nhttp://www.netlify.com\n\nCode:\nhttps://github.com/bradtraversy/angular-crash-todolist\n\n💖 Become a Patron: Show support & get perks!\nhttp://www.patreon.com/traversymedia\n\nWebsite & Udemy Courses\nhttp://www.traversymedia.com\n\nFollow Traversy Media:\nhttps://www.facebook.com/traversymedia\nhttps://www.twitter.com/traversymedia\nhttps://www.instagram.com/traversymedia',
@@ -230,7 +230,7 @@ export const response: any = {
         'etag': '"Fznwjl6JEQdo1MGvHOGaz_YanRU/cDwx4Ds5-J9CmiqmazUetzrLZKY"',
         'id': 'Rf54BH35yrY',
         'snippet': {
-          'publishedAt': '2019-09-04T15:00:12.000Z',
+          'publishedAt': '2020-09-04T15:00:12.000Z',
           'channelId': 'UCg8ss4xW9jASrqWGP30jXiw',
           'title': 'Angular 8 Основы. Полный Курс для начинающих',
           'description': 'Полный курс по Angular 8+:\nhttps://clc.to/angular\n\nДобавляйте меня в ВК: https://vk.com/vladilen.minin\nTelegram: https://teleg.one/js_by_vladilen\nInstagram: https://www.instagram.com/vladilen.minin\nГруппа ВК: https://vk.com/js_by_vladilen\n\nПоддержать выпуск новых видео:\nЯД: https://money.yandex.ru/to/410013757655670\nPayPal: https://www.paypal.me/vladilenm \n\nУрок по Angular. В этом курсе вы познакомитесь со всеми основными элементами, которые есть в Angular с полного нуля\n\nAngular 8 Основы. Полный Курс. Урок для Новичков',
@@ -309,7 +309,7 @@ export const response: any = {
         'etag': '"Fznwjl6JEQdo1MGvHOGaz_YanRU/_99tEunMszVYvCj2-1aUTKgOoSY"',
         'id': 'm0yGx2MGZWg',
         'snippet': {
-          'publishedAt': '2018-05-13T07:44:08.000Z',
+          'publishedAt': '2020-05-13T07:44:08.000Z',
           'channelId': 'UCe_H8hzx9WV7Ca7Ps5gt72Q',
           'title': 'Что такое Angular. Обзор возможностей',
           'description': 'В этом видео речь пойдет про javascript фреймворк Angular. Я расскажу что такое Angular, где и когда его применяют, а так же сделаю небольшой обзор его возможностей. Расскажу чем фреймворк сложен для новичков и чем он действительно хорош для новых проектов. Сейчас для того что б стать junior javascript разработчиком нужно обязательно знать хотя бы один фреймворк js и ангуляр будет отличным выбором.',
@@ -383,7 +383,7 @@ export const response: any = {
         'etag': '"Fznwjl6JEQdo1MGvHOGaz_YanRU/GuGydXnkvpl-L4ntYhAaLNiseZ4"',
         'id': 'VAkio68d51A',
         'snippet': {
-          'publishedAt': '2019-02-25T00:09:23.000Z',
+          'publishedAt': '2020-02-25T00:09:23.000Z',
           'channelId': 'UCZ9qFEC82qM6Pk-54Q4TVWA',
           'title': 'What is Angular? (Explained for Beginners)',
           'description': "When you're just starting out you are probably wondering \"What is Angular exactly? When you ask that question it leads to a lot of concepts that are over your head and don't make sense. So in this video I really want to cover what exactly Angular is and why it's even necessary... all from a beginners point of view.\n\n*** DOWNLOAD THE FREE REPORT ***\nFor my free report on the five best programming languages in 2019 (for beginners) go to: https://andysterkowitz.com/report",
@@ -461,7 +461,7 @@ export const response: any = {
         'etag': '"Fznwjl6JEQdo1MGvHOGaz_YanRU/u2qq5ltpXouoIrpkJgGLu8YOIeg"',
         'id': 'u1VCxpvDgsk',
         'snippet': {
-          'publishedAt': '2018-12-01T15:00:05.000Z',
+          'publishedAt': '2020-09-20T15:00:05.000Z',
           'channelId': 'UCvuY904el7JvBlPbdqbfguw',
           'title': 'Уроки Angular для начинающих / #1 - Введение в Angular',
           'description': 'Приступаем к изучению библиотеки Angular. В ходе курса мы создадим небольшой сайт и научимся всем основным концепциям библиотеки Angular. Мы рассмотрим события, компоненты, создание форм и многое другое, чтобы вы в дальнейшем сами могли создавать веб сайты на Angular.\n\n1) Курс на сайте itProger: https://itproger.com/course/angular\n2) Node JS: https://nodejs.org/\n3) Редактор кода: https://atom.io/\n4) Angular CLI: https://cli.angular.io/\n\n✔ Сообщество программистов: https://itproger.com/\n\n✔ -------------\nВступай в группу Вк - https://vk.com/prog_life 🚀\nГруппа FaceBook - https://goo.gl/XW0aaP\n\nInstagram: https://www.instagram.com/gosha_dudar/\nTelegram: http://t.me/itProger_official\nTwitter - https://twitter.com/GoshaDudar\n\n- Уроки от #GoshaDudar 👨🏼\u200d💻\n- Все уроки по хештегу #goshaAngular',

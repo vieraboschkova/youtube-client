@@ -6,6 +6,8 @@
 </app-header>
 <app-search-results 
     *ngIf="showingResults"
+    [sortType]="sortType"
+    [sortWords]="sortWord"
     class="results-container">
 </app-search-results>
 <!-- <app-dashboard></app-dashboard> -->
