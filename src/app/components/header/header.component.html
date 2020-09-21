@@ -7,5 +7,8 @@
 <!-- <app-search-filter *ngIf = "filterDisplay; else noSearch"></app-search-filter> -->
  <app-search-filter 
     *ngIf = "filterDisplay"
-    class="filter">
+    class="filter"
+    (sortingTypeEvent)="sortByType($event)"
+    (sortingWordEvent)="sortByWord($event)"
+    >
 </app-search-filter>

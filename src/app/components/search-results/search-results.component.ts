@@ -13,10 +13,15 @@ export class SearchResultsComponent implements OnInit {
   public itemsArray: ISearchItem[] = this.searchResponse.items;
   public totalResults: number = this.searchResponse.pageInfo.totalResults;
   public resultsPerPage: number = this.searchResponse.pageInfo.resultsPerPage;
+  public sortBy: string = '';
 
   constructor() { }
 
   public ngOnInit(): void {
+  }
+
+  sortFunction (a, b) {
+    return <any>new Date(b.snippet.publishedAt) - <any>new Date(a.snippet.publishedAt);
   }
 
 }

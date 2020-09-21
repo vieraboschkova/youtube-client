@@ -1,5 +1,5 @@
 <app-search-item 
-    *ngFor = "let item of itemsArray"
+    *ngFor = "let item of itemsArray.sort(sortFunction)"
     class="results-item"
     [item] = "item"
 >

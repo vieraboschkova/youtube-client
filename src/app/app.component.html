@@ -1,6 +1,8 @@
 <app-header 
     class="header-container"
-    (showResults)="showResults($event)">
+    (showResults)="showResults($event)"
+    (sortTypeEvent)="getSortType($event)"
+    (sortWordEvent)="getSortWord($event)">
 </app-header>
 <app-search-results 
     *ngIf="showingResults"

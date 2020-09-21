@@ -1,10 +1,26 @@
 <div class="sorting-options">
     <p class="filter-item">Sorting by:</p>
-    <a href="#" class="button" class="filter-name filter-item">date</a>
-    <a href="#" class="button" class="filter-name filter-item">count of views</a>
-    <a href="#" class="button" class="filter-name filter-item">word or sentence</a>
+    <a 
+        (click) = "onSelectSortType('date')"
+        href="#" 
+        class="button" 
+        class="filter-name filter-item">
+        date</a>
+    <a 
+        (click) = "onSelectSortType('views')"
+        href="#" 
+        class="button" 
+        class="filter-name filter-item">
+        count of views</a>
+    <a
+        (click) = "onSelectSortType('word', filterWord.value)"
+        href="#" 
+        class="button" 
+        class="filter-name filter-item">
+        word or sentence</a>
     <input
         #filterWord
         tybuttone="text"
         class="filter-input filter-item">
 </div>
+<!-- <p>You want to sort by {{sortingOption}} and {{sortingKeyword}}</p> -->
