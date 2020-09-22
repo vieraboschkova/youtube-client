@@ -24,6 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BottomColorDirective } from './directives/bottom-color.directive';
+import { UnlessDirective } from './directives/unless.directive';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { BottomColorDirective } from './directives/bottom-color.directive';
     SearchFilterComponent,
     LoginComponent,
     BottomColorDirective,
+    UnlessDirective,
     // DashboardComponent
   ],
   imports: [
