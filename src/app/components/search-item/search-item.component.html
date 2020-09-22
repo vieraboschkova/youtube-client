@@ -1,5 +1,8 @@
+<!-- [ngStyle] = "{borderBottomColor: getColor()}" -->
+
 <mat-card
-    [ngStyle] = "{borderBottomColor: getColor()}" 
+    appBottomColor
+    [cardColor]="getColor()" 
     [ngClass] = "{conditional: wasSeen === false}"
     class="item"    
 >

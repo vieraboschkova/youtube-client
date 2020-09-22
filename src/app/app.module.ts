@@ -23,6 +23,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BottomColorDirective } from './directives/bottom-color.directive';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SearchFormComponent,
     SearchFilterComponent,
     LoginComponent,
+    BottomColorDirective,
     // DashboardComponent
   ],
   imports: [

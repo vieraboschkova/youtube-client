@@ -8,14 +8,15 @@ import { faFilter } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./search-form.component.scss']
 })
 export class SearchFormComponent implements 
-  OnInit,
-  OnChanges,
-  DoCheck,
-  AfterContentInit,
-  AfterContentChecked,
-  AfterViewInit,
-  AfterViewChecked,
-  OnDestroy {
+  OnInit
+  // OnChanges,
+  // DoCheck,
+  // AfterContentInit,
+  // AfterContentChecked,
+  // AfterViewInit,
+  // AfterViewChecked,
+  // OnDestroy {
+  {
   public searchValue: string = '';
   // public searchIsSet: boolean = false;
   // public showFilter: boolean = false;
