@@ -41,7 +41,7 @@
             {{ item.statistics.commentCount}}
         </p>
     </div>
-    <mat-card-title class="video-title">{{ item.snippet.title | uppercase | shortenTitle }}</mat-card-title>
+    <mat-card-title class="video-title">{{ item.snippet.title | uppercase | shortenTitle: 5 }}</mat-card-title>
     <mat-card-subtitle>{{ item.snippet.publishedAt}}</mat-card-subtitle>
     <mat-card-actions>
         <button 

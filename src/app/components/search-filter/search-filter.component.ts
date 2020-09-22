@@ -9,6 +9,8 @@ import { Component, OnInit, Output, ViewChild, EventEmitter, ElementRef } from '
 export class SearchFilterComponent implements OnInit {
   public sortingOption: string = '';
   public sortingKeyword: string = '';
+  // public filtered: boolean;
+  public filteredBy: string;
   @ViewChild ('filterWord', {static: false}) sortWordInput: ElementRef;
   @Output() public sortingTypeEvent = new EventEmitter<string>();
   @Output() public sortingWordEvent = new EventEmitter<string>();
