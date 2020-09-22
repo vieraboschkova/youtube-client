@@ -7,6 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   public filterDisplay: boolean = false;
+  // public value: number = 5;
   @Output() public showResults = new EventEmitter<string>();
   @Output() public sortTypeEvent = new EventEmitter<string>();
   @Output() public sortWordEvent = new EventEmitter<string>();

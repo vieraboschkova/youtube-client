@@ -25,6 +25,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BottomColorDirective } from './directives/bottom-color.directive';
 import { UnlessDirective } from './directives/unless.directive';
+import { FilterPipe } from './pipes/filter.pipe';
+import { ShortenTitlePipe } from './pipes/shorten-title.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { UnlessDirective } from './directives/unless.directive';
     LoginComponent,
     BottomColorDirective,
     UnlessDirective,
+    FilterPipe,
+    ShortenTitlePipe,
     // DashboardComponent
   ],
   imports: [
