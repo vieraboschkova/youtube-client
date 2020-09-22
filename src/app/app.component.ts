@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   public title: string = 'youtube-client';
-  public showingResults: boolean = true;
+  public showingResults: boolean = false;
   public sortType: string;
   public sortWord: string;
   showResults (keywords) {
