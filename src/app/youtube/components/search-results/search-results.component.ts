@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { ISearchResponse } from '../../models/search-response.model';
-import { ISearchItem } from 'src/app/models/search-item.model';
+import { ISearchItem } from 'src/app/youtube/models/search-item.model';
 import { response } from './response.module'
 
 @Component({

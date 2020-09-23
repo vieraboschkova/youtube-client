@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ISearchItem } from 'src/app/models/search-item.model';
+import { ISearchItem } from 'src/app/youtube/models/search-item.model';
 import {faEye, faHeart, faHeartBroken, faCommentAlt, IconDefinition} from '@fortawesome/free-solid-svg-icons';
 
 @Component({

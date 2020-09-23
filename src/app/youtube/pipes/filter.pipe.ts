@@ -1,7 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { faPage4 } from '@fortawesome/free-brands-svg-icons';
 
 @Pipe({
-  name: 'filter'
+  name: 'filter'/*,
+  pure: false  default true; recalculates on changes, careful!  */
 })
 export class FilterPipe implements PipeTransform {
 
@@ -11,7 +13,7 @@ export class FilterPipe implements PipeTransform {
     filterString: string, 
     propName: string, 
     ...args: unknown[]): unknown {
-    if (value.length === 0 || filterType !== 'word') {
+    if (value.length === 0 || filterType !== 'word' || filterString === '') {
       return value;
     }
     const resultArray = [];
