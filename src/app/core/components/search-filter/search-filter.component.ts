@@ -1,10 +1,11 @@
 import { prepareSyntheticListenerFunctionName } from '@angular/compiler/src/render3/util';
 import { Component, OnInit, Output, ViewChild, EventEmitter, ElementRef } from '@angular/core';
-
+import { SearchResultsService} from '../../services/searchResults.service';
 @Component({
   selector: 'app-search-filter',
   templateUrl: './search-filter.component.html',
-  styleUrls: ['./search-filter.component.scss']
+  styleUrls: ['./search-filter.component.scss'],
+  providers: []
 })
 export class SearchFilterComponent implements OnInit {
   public sortingOption: string = '';
@@ -14,7 +15,8 @@ export class SearchFilterComponent implements OnInit {
   @ViewChild ('filterWord', {static: false}) sortWordInput: ElementRef;
   @Output() public sortingTypeEvent = new EventEmitter<string>();
   @Output() public sortingWordEvent = new EventEmitter<string>();
-  constructor() { }
+
+  constructor(private search: SearchResultsService) { }
 
   ngOnInit(): void {
   }
@@ -26,5 +28,6 @@ export class SearchFilterComponent implements OnInit {
     this.sortingOption = sortType;
     this.sortingKeyword = word;
     this.sortWordInput.nativeElement.value = '';
+    this.search.logSearch(sortType);
   }
 }

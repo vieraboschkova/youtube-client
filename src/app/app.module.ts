@@ -27,6 +27,7 @@ import { BottomColorDirective } from './youtube/directives/bottom-color.directiv
 import { UnlessDirective } from './youtube/directives/unless.directive';
 import { FilterPipe } from './youtube/pipes/filter.pipe';
 import { ShortenTitlePipe } from './youtube/pipes/shorten-title.pipe';
+import { SearchResultsService } from './core/services/searchResults.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,7 @@ import { ShortenTitlePipe } from './youtube/pipes/shorten-title.pipe';
     LayoutModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [SearchResultsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
