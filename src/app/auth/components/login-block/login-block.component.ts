@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators, FormGroup, FormBuilder, NgForm} from '@angular/forms';
+import { LoginService} from '../../services/login.service';
 
 @Component({
   selector: 'app-login-block',
@@ -11,14 +12,19 @@ export class LoginBlockComponent implements OnInit {
   password = new FormControl('', [Validators.required, Validators.minLength(8)]);
   hide = true;
   options: FormGroup;
+  username: string;
   // constructor() { }
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private login: LoginService) {
     this.options = fb.group({
     });
+    this.login.isloggedIn.subscribe(
+      (name) => this.username
+    )
   }
 
   ngOnInit(): void {
   }
+
   getEmailErrorMessage() {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
@@ -34,6 +40,7 @@ export class LoginBlockComponent implements OnInit {
 
   onSubmit(loginForm: NgForm) {
     console.log(loginForm.value);
+    this.login.logger('someuser');
   }
 
 }
