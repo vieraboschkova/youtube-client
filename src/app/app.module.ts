@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +29,7 @@ import { FilterPipe } from './youtube/pipes/filter.pipe';
 import { ShortenTitlePipe } from './youtube/pipes/shorten-title.pipe';
 import { SearchResultsService } from './core/services/searchResults.service';
 import { Page404Component } from './shared/components/page404/page404.component';
+import { LoginBlockComponent } from './auth/components/login-block/login-block.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { Page404Component } from './shared/components/page404/page404.component'
     FilterPipe,
     ShortenTitlePipe,
     Page404Component,
+    LoginBlockComponent,
     // DashboardComponent
   ],
   imports: [
@@ -60,7 +62,8 @@ import { Page404Component } from './shared/components/page404/page404.component'
     MatMenuModule,
     MatIconModule,
     LayoutModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [SearchResultsService],
   bootstrap: [AppComponent]
