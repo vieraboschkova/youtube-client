@@ -18,8 +18,8 @@ export class HeaderComponent implements OnInit {
     console.log('toggling filter');
     this.filterDisplay = !this.filterDisplay;
   }
-  showResponse (keywords: string): void {
-    console.log('showing response' + keywords);
-    this.showResults.emit(keywords);
+  showResponse (): void {
+    console.log('showing response');
+    this.showResults.emit();
   }
 }
