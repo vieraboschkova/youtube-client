@@ -7,10 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   public filterDisplay: boolean = false;
-  // public value: number = 5;
   @Output() public showResults = new EventEmitter<string>();
-  @Output() public sortTypeEvent = new EventEmitter<string>();
-  @Output() public sortWordEvent = new EventEmitter<string>();
 
   constructor() { }
 
@@ -19,21 +16,10 @@ export class HeaderComponent implements OnInit {
 
   filterToggle() {
     console.log('toggling filter');
-    // console.log(showFilter);
     this.filterDisplay = !this.filterDisplay;
   }
   showResponse (keywords: string): void {
     console.log('showing response' + keywords);
     this.showResults.emit(keywords);
   }
-
-  sortByType(type: string) {
-    console.log('hello from header :' + type);
-    this.sortTypeEvent.emit(type);
-  }
-  sortByWord(word: string) {
-    console.log('hello from header :' + word);
-    this.sortWordEvent.emit(word);
-  }
-
 }

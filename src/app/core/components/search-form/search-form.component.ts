@@ -18,8 +18,6 @@ export class SearchFormComponent implements
   // OnDestroy {
   {
   public searchValue: string = '';
-  // public searchIsSet: boolean = false;
-  // public showFilter: boolean = false;
   public faYoutube = faYoutube;
   public faFilter = faFilter;
   @Output() public showFilterEvent = new EventEmitter<void>();
@@ -64,14 +62,12 @@ export class SearchFormComponent implements
   public onSearchClick(searchInputValue: HTMLInputElement): void {
     const input = this.searchInputValue.nativeElement.value;
     console.log('clicked search');
-    // this.searchIsSet = false;
     this.showResponseEvent.emit(input);
     this.searchInputValue.nativeElement.value = '';
   }
 
   public onFilterClick(): void {
     console.log('clicked filter');
-    // this.showFilter = !this.showFilter;
     this.showFilterEvent.emit();
   }
 

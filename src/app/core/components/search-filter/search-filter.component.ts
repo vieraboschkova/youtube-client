@@ -10,11 +10,8 @@ import { SearchResultsService} from '../../services/searchResults.service';
 export class SearchFilterComponent implements OnInit {
   public sortingOption: string = '';
   public sortingKeyword: string = '';
-  // public filtered: boolean;
   public filteredBy: string;
   @ViewChild ('filterWord', {static: false}) sortWordInput: ElementRef;
-  @Output() public sortingTypeEvent = new EventEmitter<string>();
-  @Output() public sortingWordEvent = new EventEmitter<string>();
 
   constructor(private search: SearchResultsService) { }
 
@@ -22,12 +19,14 @@ export class SearchFilterComponent implements OnInit {
   }
 
   public onSelectSortType(sortType: string, word?: string) {
-    console.log("CLICKED" + sortType, word);
-    this.sortingTypeEvent.emit(sortType);
-    this.sortingWordEvent.emit(word);
-    this.sortingOption = sortType;
-    this.sortingKeyword = word;
+    if (!word) {
+      alert('no string, showing all results');
+    }
     this.sortWordInput.nativeElement.value = '';
-    this.search.logSearch(sortType);
+    this.search.setType(sortType);
+    this.search.setWord(word);
+    this.search.wordWasSet.emit(word);
+    this.search.sortWasSet.emit(sortType);
+    this.search.increasingWasSet.emit(this.search.increasing);
   }
 }

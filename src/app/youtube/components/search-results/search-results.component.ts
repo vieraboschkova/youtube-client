@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { ISearchResponse } from '../../models/search-response.model';
 import { ISearchItem } from 'src/app/youtube/models/search-item.model';
-import { response } from './response.module'
+import { response } from './response.module';
+import { SearchResultsService} from '../../../core/services/searchResults.service';
 
 @Component({
   selector: 'app-search-results',
@@ -14,12 +15,24 @@ export class SearchResultsComponent implements OnInit {
   public totalResults: number = this.searchResponse.pageInfo.totalResults;
   public resultsPerPage: number = this.searchResponse.pageInfo.resultsPerPage;
   public sortBy: string = '';
-  @Input() public sortType: string;
-  @Input() public sortWords: string;
+  public sortWord: string = '';
+  public sortDirection: boolean = false;
 
-  constructor() { }
+  constructor(private search: SearchResultsService) {
+    this.search.sortWasSet.subscribe(
+      (sort) => this.sortBy = sort
+    );
+    this.search.wordWasSet.subscribe(
+      (word) => this.sortWord = word
+    );
+    this.search.increasingWasSet.subscribe(
+      (increasing) => this.sortDirection = increasing
+    );
+    console.log('constructor works');
+  }
 
   public ngOnInit(): void {
+    console.log('oninit works');
   }
 
   sortByDateFromNewest (a, b) {
@@ -38,35 +51,45 @@ export class SearchResultsComponent implements OnInit {
     return b.statistics.viewCount - a.statistics.viewCount;
   }
 
-  lookForWord (a) {
-    console.log(a.snippet.tags);
-    // console.log("the key words: " + this.sortWords);
-    // const tagsArray: string[] = a.snippet.tags;
-    // if (tagsArray.includes(this.sortWords)) {
-    //   console.log('GOT IT');
-    // } else { console.log('NO MATCHES'); }
-  }
+  // ngAfterContentChecked() {
+  // ngOnChanges() {
 
-  ngOnChanges(){
-    console.log(this.sortType);
-    if (this.sortType === 'date') {
-      this.itemsArray.sort(this.sortByDateFromNewest);
-    } else if (this.sortType === 'dateDown') {
-      this.itemsArray.sort(this.sortByDateFromOldest);
-    } else if (this.sortType === 'view') {
-      this.itemsArray.sort(this.sortByLeastViews);
-    } else if (this.sortType === 'viewDown') {
-      this.itemsArray.sort(this.sortByMostViews);
-    } else if (this.sortType === 'word') {
-      console.log('sort by words');
-      console.log(this.sortWords);
-      // this.itemsArray.filter(this.lookForWord);
-      this.itemsArray.filter(
-        (item) => item.snippet.tags.includes('angular')
-      );
-      console.log('sort by words END');
-      
+  sortArrayOfResults() {
+    console.log(' FROM RESULTS');
+    console.log(this.sortBy, this.sortWord, this.sortDirection);
+    switch (this.sortBy) {
+      case 'date':
+        if (this.search.increasing === true)
+          {this.itemsArray.sort(this.sortByDateFromNewest);} else
+          {this.itemsArray.sort(this.sortByDateFromOldest);}
+        break;
+      case 'view':
+        if (this.search.increasing === true) {
+          this.itemsArray.sort(this.sortByLeastViews);
+        } else {this.itemsArray.sort(this.sortByMostViews); }
+        break;
+      case 'word':
+        // const givenString: string = this.sortWord;
+        // if (givenString.length < 0 || !givenString) {
+        //   console.log('no string');
+        //   // break;
+        // } else {
+        //   let filteredResults: ISearchItem[];
+        //   filteredResults = this.itemsArray.filter(function (item) {
+        //     return item.snippet.tags.includes(givenString);
+        //     }
+        //   );
+        //   console.log('sort by words END');
+        //   this.itemsArray = filteredResults;
+        // }
+        
+        break;
+      default:
+        console.log('new responses');
+        break;
     }
   }
+
+  ngAfterContentChecked() { this.sortArrayOfResults(); }
 
 }
