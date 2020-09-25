@@ -28,6 +28,7 @@ import { UnlessDirective } from './youtube/directives/unless.directive';
 import { FilterPipe } from './youtube/pipes/filter.pipe';
 import { ShortenTitlePipe } from './youtube/pipes/shorten-title.pipe';
 import { SearchResultsService } from './core/services/searchResults.service';
+import { Page404Component } from './shared/components/page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SearchResultsService } from './core/services/searchResults.service';
     UnlessDirective,
     FilterPipe,
     ShortenTitlePipe,
+    Page404Component,
     // DashboardComponent
   ],
   imports: [

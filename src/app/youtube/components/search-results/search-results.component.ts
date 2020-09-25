@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, OnChanges } from '@angular/core';
 import { ISearchResponse } from '../../models/search-response.model';
 import { ISearchItem } from 'src/app/youtube/models/search-item.model';
 import { response } from './response.module';
@@ -82,14 +82,13 @@ export class SearchResultsComponent implements OnInit {
         //   console.log('sort by words END');
         //   this.itemsArray = filteredResults;
         // }
-        
         break;
       default:
         console.log('new responses');
         break;
     }
   }
-
+  // ngOnChanges() { this.sortArrayOfResults(); }
   ngAfterContentChecked() { this.sortArrayOfResults(); }
 
 }

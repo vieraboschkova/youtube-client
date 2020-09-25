@@ -16,7 +16,7 @@ export class SearchItemComponent implements OnInit {
   public wasSeen: boolean = true;
   @Input() public item: ISearchItem;
   constructor() { }
-
+ 
   public ngOnInit(): void {
   }
 
