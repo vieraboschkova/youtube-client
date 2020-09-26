@@ -39,6 +39,7 @@ export class DetailedInfoComponent implements OnInit {
       // item.id === this.itemId;
       return item.id === id;
     });
+    // ADD SERVICE TO DEAL WITH THAT
   }
 
 }
