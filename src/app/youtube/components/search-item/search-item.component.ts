@@ -34,6 +34,6 @@ export class SearchItemComponent implements OnInit {
   }
 
   goToDetailsPage(id) {
-    
+    console.log('check the details of: ' + id);
   }
 }

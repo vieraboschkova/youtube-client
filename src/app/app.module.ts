@@ -68,8 +68,11 @@ import { DetailedInfoComponent } from './youtube/components/detailed-info/detail
     FontAwesomeModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: AppComponent },
-      { path: 'search/:searchItemId', component: SearchItemComponent },
+      { path: '', redirectTo: 'search', pathMatch: 'full' },
+      { path: 'login', component: LoginBlockComponent },
+      { path: '**', component: Page404Component },
+      { path: 'search', component: SearchResultsComponent },
+      { path: 'search/:id', component: DetailedInfoComponent },
     ])
   ],
   providers: [SearchResultsService],

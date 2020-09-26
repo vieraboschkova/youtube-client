@@ -2,9 +2,11 @@
     class="header-container"
 >
 </app-header>
-<app-search-results 
+<!-- <app-search-results
+    [routerLink]="['/search']"  
     *ngIf="data[1]"
     class="results-container">
-</app-search-results>
+</app-search-results> -->
 <!-- <app-page404></app-page404> -->
-<app-login-block *ngIf="!data[1]"></app-login-block>
+<!-- <app-login-block *ngIf="!data[1]"></app-login-block> -->
+<router-outlet></router-outlet>
