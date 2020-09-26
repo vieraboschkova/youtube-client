@@ -30,9 +30,17 @@ import { ShortenTitlePipe } from './youtube/pipes/shorten-title.pipe';
 import { SearchResultsService } from './core/services/searchResults.service';
 import { Page404Component } from './shared/components/page404/page404.component';
 import { LoginBlockComponent } from './auth/components/login-block/login-block.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { DetailedInfoComponent } from './youtube/components/detailed-info/detailed-info.component';
 
+const appRoutes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginBlockComponent },
+  // { path: '**', component: Page404Component },
+  { path: 'search', component: SearchResultsComponent },
+  { path: 'search/:id', component: DetailedInfoComponent },
+
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,13 +75,7 @@ import { DetailedInfoComponent } from './youtube/components/detailed-info/detail
     LayoutModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: '', redirectTo: 'search', pathMatch: 'full' },
-      { path: 'login', component: LoginBlockComponent },
-      { path: '**', component: Page404Component },
-      { path: 'search', component: SearchResultsComponent },
-      { path: 'search/:id', component: DetailedInfoComponent },
-    ])
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [SearchResultsService],
   bootstrap: [AppComponent]

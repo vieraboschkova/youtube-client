@@ -1,11 +1,12 @@
 <!-- <p>You are searching by Type: {{ sortType }} and looking for {{sortWords}}</p> -->
-
-<app-search-item 
-    *ngFor = "let item of itemsArray | filter: sortBy: sortWord"
-    class="results-item"
-    [item] = "item"
->
-</app-search-item>
+<div class="results-container">
+    <app-search-item 
+        *ngFor = "let item of itemsArray | filter: sortBy: sortWord"
+        class="results-item"
+        [item] = "item"
+    >
+    </app-search-item>
+</div>
 
 <!-- *ngFor = "let item of itemsArray.sort(sortFunction)" -->
 <!-- *ngFor = "let item of itemsArray | filter: search.sortType: search.sortWord" -->

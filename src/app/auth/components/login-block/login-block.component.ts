@@ -3,6 +3,7 @@ import { ElementRef } from '@angular/core';
 import { SimpleChanges } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators, FormGroup, FormBuilder, NgForm} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService} from '../../services/login.service';
 
 @Component({
@@ -20,9 +21,12 @@ export class LoginBlockComponent implements OnInit {
   // @ViewChild('username', {static: false}) userInput: ElementRef;
   // @ViewChild('password', {static: false}) passwordInput: ElementRef;
   // constructor() { }
-  constructor(fb: FormBuilder, private login: LoginService) {
-    this.options = fb.group({
-    });
+  constructor(
+    fb: FormBuilder,
+    private login: LoginService,
+    private router: Router) {
+      this.options = fb.group({
+      });
   }
 
   ngOnInit(): void {
@@ -53,6 +57,7 @@ export class LoginBlockComponent implements OnInit {
       console.log('You are logged in');
       localStorage.setItem('user', login.value);
       localStorage.setItem('password', password.value);
+      this.router.navigate(['/search']);
     } else { alert('Invalid data'); }
 
   }
