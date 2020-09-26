@@ -1,0 +1,70 @@
+.detailed-page {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.image {
+  width: 40vw;
+}
+
+.info-container {
+  outline: pink solid 5px;
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  background-color: #e5e5e5;
+}
+
+.description-container {
+  outline: powderblue dotted 4px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.title {
+  outline: palegreen dotted 2px;
+}
+
+.description {
+  outline: purple dotted 2px;
+  font-size: medium;
+}
+
+h3 {
+  display: inline;
+  font-weight: bold;
+}
+
+span {
+  font-size: x-small;
+  float: right;
+}
+
+h4 {
+  font-weight: normal;
+}
+
+p {
+  font-size: x-small;
+  font-weight: lighter;
+  line-height: 1em;
+}
+
+.statistics {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.statistics-item {
+  padding: 10px;
+  font-size: .75em;
+}

@@ -1,6 +1,50 @@
-<p>detailed-info works!</p>
-item {{ items }}
-<br>
-<!-- itemid {{ itemId.id }} -->
-<br>
-item current {{ currentItem[0].snippet.title }}
+<div class="detailed-page">
+    <button [routerLink]="['/search']">&#60;</button>
+    <div class="info-container">
+        <img 
+            class="image"
+            [src]="currentItem[0].snippet.thumbnails.maxres.url">
+        <div class="description-container">
+            <div class="title">
+                <h3>{{ currentItem[0].snippet.title }}</h3>
+                <span>{{ currentItem[0].snippet.publishedAt | date }}</span>
+            </div>
+            <div class="description">
+                <h4>Description:</h4>
+                <p>
+                    {{ currentItem[0].snippet.description }}
+                </p>
+            </div>
+            <div class="statistics">
+                <div class="statistics-item">
+                    <fa-icon 
+                    class="filter-icon"
+                    [icon]="faEye"> 
+                    </fa-icon>
+                    {{ currentItem[0].statistics.viewCount}}
+                </div>
+                <div class="statistics-item">
+                    <fa-icon 
+                    class="filter-icon"
+                    [icon]="faHeart"> 
+                    </fa-icon>
+                    {{ currentItem[0].statistics.likeCount}}
+                </div>
+                <div class="statistics-item">
+                    <fa-icon 
+                    class="filter-icon"
+                    [icon]="faHeartBroken"> 
+                    </fa-icon>
+                    {{ currentItem[0].statistics.dislikeCount}}
+                </div>
+                <div class="statistics-item">
+                    <fa-icon 
+                    class="filter-icon"
+                    [icon]="faCommentAlt"> 
+                    </fa-icon>
+                    {{ currentItem[0].statistics.commentCount}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
