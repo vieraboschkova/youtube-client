@@ -36,10 +36,9 @@ import { DetailedInfoComponent } from './youtube/components/detailed-info/detail
 const appRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginBlockComponent },
-  // { path: '**', component: Page404Component },
   { path: 'search', component: SearchResultsComponent },
-  { path: 'search/:id', component: DetailedInfoComponent },
-
+  { path: 'search/:itemId', component: DetailedInfoComponent },
+  { path: '**', component: Page404Component },
 ];
 @NgModule({
   declarations: [

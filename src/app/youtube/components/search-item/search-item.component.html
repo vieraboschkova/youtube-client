@@ -47,8 +47,8 @@
         <button 
             color="primary"
             class="bottom-button"
-            [routerLink]="['/search', item.id]"
             (click)="goToDetailsPage(item.id)"
+            
             >
             more...
         </button>
@@ -61,4 +61,5 @@
         <!-- OR -->
         <!-- src = "{{ item.pathOrStg }}"  STRING INTERPOLATION-->
 
-
+        <!-- (click)="goToDetailsPage(item.id)" -->
+        <!-- [routerLink]="['/search', this.item.id]" -->

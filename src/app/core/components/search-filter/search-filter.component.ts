@@ -22,6 +22,7 @@ export class SearchFilterComponent implements OnInit {
     if (!word && sortType === 'word') {
       alert('no string, showing all results');
     }
+    console.log('filtering')
     this.sortWordInput.nativeElement.value = '';
     this.search.setType(sortType);
     this.search.setWord(word);

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ISearchItem } from 'src/app/youtube/models/search-item.model';
 import {faEye, faHeart, faHeartBroken, faCommentAlt, IconDefinition} from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-item',
@@ -15,7 +16,7 @@ export class SearchItemComponent implements OnInit {
   // public age: number = Math.random() * (500);
   public wasSeen: boolean = true;
   @Input() public item: ISearchItem;
-  constructor() { }
+  constructor(private router: Router) { }
  
   public ngOnInit(): void {
   }
@@ -35,5 +36,6 @@ export class SearchItemComponent implements OnInit {
 
   goToDetailsPage(id) {
     console.log('check the details of: ' + id);
+    this.router.navigate(['search', id]);
   }
 }

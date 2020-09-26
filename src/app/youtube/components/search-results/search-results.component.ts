@@ -51,9 +51,6 @@ export class SearchResultsComponent implements OnInit {
     return b.statistics.viewCount - a.statistics.viewCount;
   }
 
-  // ngAfterContentChecked() {
-  // ngOnChanges() {
-
   sortArrayOfResults() {
     console.log(' FROM RESULTS');
     console.log(this.sortBy, this.sortWord, this.sortDirection);
