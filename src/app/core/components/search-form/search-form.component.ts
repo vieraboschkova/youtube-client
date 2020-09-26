@@ -2,6 +2,8 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 // import { IconDefiniton } from '@fortawesome/free-brands-svg-icons'
+import { LoginService} from '../../../auth/services/login.service';
+
 @Component({
   selector: 'app-search-form',
   templateUrl: './search-form.component.html',
@@ -20,55 +22,33 @@ export class SearchFormComponent implements
   public searchValue: string = '';
   public faYoutube = faYoutube;
   public faFilter = faFilter;
+  public data = [];
   @Output() public showFilterEvent = new EventEmitter<void>();
-  @Output() public showResponseEvent = new EventEmitter<string>();
+  // @Output() public showResponseEvent = new EventEmitter<string>();
   @ViewChild('searchInput', {static: false}) searchInputValue: ElementRef;
   @ContentChild('filterButton', {static: false}) filterButton: ElementRef;
 
-  // constructor() { 
-  //   console.log('constructor works!');
-  // }
+  constructor(private login: LoginService) {
+    // console.log('constructor works!');
+  }
 
   ngOnInit(): void { 
     console.log('ngOnInit works!');
+    this.data = this.login.getData();
   }
-
-  // ngOnChanges(changes: SimpleChanges): void {
-  //   console.log('ngOnChanges works!');
-  //   console.log(changes);
-  // }
-
-  // ngDoCheck(): void {
-  //   console.log('ngDoCheck works!');
-  // }
-
-  // ngAfterContentInit(): void {
-  //   console.log('ngAfterContentInit works!');
-  // }
-  // ngAfterContentChecked(): void {
-  //   console.log('ngAfterContentChecked works!');
-  // }
-  // ngAfterViewInit(): void {
-  //   console.log('ngAfterViewInit works!');
-  // }
-  // ngAfterViewChecked(): void {
-  //   console.log('ngAfterViewChecked works!');
-  // }
-
-  // ngOnDestroy(): void {
-  //   console.log('ngOnDestroy works!');
-  // }
 
   public onSearchClick(searchInputValue: HTMLInputElement): void {
     const input = this.searchInputValue.nativeElement.value;
     console.log('clicked search');
-    this.showResponseEvent.emit(input);
+    // this.showResponseEvent.emit(input);
     this.searchInputValue.nativeElement.value = '';
+    if (!this.data[1]) {
+      alert('Log in to see the results');
+    }
   }
 
   public onFilterClick(): void {
     console.log('clicked filter');
     this.showFilterEvent.emit();
   }
-
 }

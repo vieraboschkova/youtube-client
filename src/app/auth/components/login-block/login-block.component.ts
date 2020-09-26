@@ -1,3 +1,6 @@
+import { ViewChild } from '@angular/core';
+import { ElementRef } from '@angular/core';
+import { SimpleChanges } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators, FormGroup, FormBuilder, NgForm} from '@angular/forms';
 import { LoginService} from '../../services/login.service';
@@ -13,17 +16,21 @@ export class LoginBlockComponent implements OnInit {
   hide = true;
   options: FormGroup;
   username: string;
+  token: string;
+  // @ViewChild('username', {static: false}) userInput: ElementRef;
+  // @ViewChild('password', {static: false}) passwordInput: ElementRef;
   // constructor() { }
   constructor(fb: FormBuilder, private login: LoginService) {
     this.options = fb.group({
     });
-    this.login.isloggedIn.subscribe(
-      (name) => this.username
-    )
   }
 
   ngOnInit(): void {
+    // this.username = this.login.getUser();
+    // this.token = this.login.token;
   }
+
+
 
   getEmailErrorMessage() {
     if (this.email.hasError('required')) {
@@ -38,9 +45,24 @@ export class LoginBlockComponent implements OnInit {
     return this.password.hasError('password') ? 'Not a valid password' : '';
   }
 
-  onSubmit(loginForm: NgForm) {
-    console.log(loginForm.value);
-    this.login.logger('someuser');
+  onSubmit(login: HTMLInputElement, password: HTMLInputElement) {
+    console.log(login.value, password.value);
+    this.checkLocalStorage(login.value, password.value);
+    this.login.setLogin(login.value, password.value);
+    if (this.login.user.isLoggedIn === true) {
+      console.log('You are logged in');
+      localStorage.setItem('user', login.value);
+      localStorage.setItem('password', password.value);
+    } else { alert('Invalid data'); }
+
   }
 
+  checkLocalStorage(username: string, password: string) {
+    console.log(localStorage.getItem('user'));
+    console.log(localStorage.getItem('password'));
+    if (localStorage.getItem('user') === username) {
+      console.log('same users');
+      /*TOKEN*/
+    }
+  }
 }

@@ -30,6 +30,8 @@ import { ShortenTitlePipe } from './youtube/pipes/shorten-title.pipe';
 import { SearchResultsService } from './core/services/searchResults.service';
 import { Page404Component } from './shared/components/page404/page404.component';
 import { LoginBlockComponent } from './auth/components/login-block/login-block.component';
+import { RouterModule } from '@angular/router';
+import { DetailedInfoComponent } from './youtube/components/detailed-info/detailed-info.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { LoginBlockComponent } from './auth/components/login-block/login-block.c
     ShortenTitlePipe,
     Page404Component,
     LoginBlockComponent,
+    DetailedInfoComponent,
     // DashboardComponent
   ],
   imports: [
@@ -63,7 +66,11 @@ import { LoginBlockComponent } from './auth/components/login-block/login-block.c
     MatIconModule,
     LayoutModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: '', component: AppComponent },
+      { path: 'search/:searchItemId', component: SearchItemComponent },
+    ])
   ],
   providers: [SearchResultsService],
   bootstrap: [AppComponent]

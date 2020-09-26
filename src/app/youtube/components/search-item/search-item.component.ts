@@ -32,4 +32,8 @@ export class SearchItemComponent implements OnInit {
     } else { return 'red'; }
 
   }
+
+  goToDetailsPage(id) {
+    
+  }
 }

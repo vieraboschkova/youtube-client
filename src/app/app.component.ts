@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SearchResultsService } from './core/services/searchResults.service';
 import { LoginService} from './auth/services/login.service';
 
@@ -8,13 +8,14 @@ import { LoginService} from './auth/services/login.service';
   styleUrls: ['./app.component.scss'],
   providers: [SearchResultsService, LoginService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   public title: string = 'youtube-client';
-  public showingResults: boolean = false;
+  // public showingResults: boolean = false;
+  public data = [];
 
-  constructor() {}
-  showResults(): void {
-    console.log('showing from app');
-    this.showingResults = true;
+  constructor(private login: LoginService) {}
+
+  ngOnInit() {
+    this.data = this.login.getData();
   }
 }

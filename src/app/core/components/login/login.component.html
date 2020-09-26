@@ -1,6 +1,9 @@
-<p class="login">Your {{ name }}</p>
+<p *ngIf="data[1]" class="login">Hello {{ data[0] }}</p>
 <button
+    *ngIf="data[1]"
+    [title]="'Log out?'"
     class="login">
         <fa-icon [icon]="faUserCircle" ></fa-icon>
 </button>
+<!-- <p> {{ data[1] }} and {{ data[0] }} </p> -->
 

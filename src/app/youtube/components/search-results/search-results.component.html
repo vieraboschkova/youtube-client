@@ -1,7 +1,7 @@
 <!-- <p>You are searching by Type: {{ sortType }} and looking for {{sortWords}}</p> -->
 
 <app-search-item 
-    *ngFor = "let item of itemsArray | filter: sortBy: sortWord "
+    *ngFor = "let item of itemsArray | filter: sortBy: sortWord; index as searchItemId"
     class="results-item"
     [item] = "item"
 >
