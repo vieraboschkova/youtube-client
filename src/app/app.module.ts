@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/components/header/header.component';
@@ -11,7 +10,6 @@ import { SearchFormComponent } from './core/components/search-form/search-form.c
 import { SearchFilterComponent } from './core/components/search-filter/search-filter.component';
 import { LoginComponent } from './core/components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
@@ -35,7 +33,13 @@ import { DetailedInfoComponent } from './youtube/components/detailed-info/detail
 import { AuthGuard } from './core/guards/auth.guard'
 
 const appRoutes: Routes = [
-
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginBlockComponent },
+  { path: 'search', component: SearchResultsComponent },
+  { path: 'search/:itemId', component: DetailedInfoComponent },
+  { path: 'search', canActivate: [AuthGuard], component: SearchResultsComponent },
+  { path: 'search/:itemId', canActivate: [AuthGuard], component: DetailedInfoComponent },
+  { path: '**', component: Page404Component },
 ];
 @NgModule({
   declarations: [
