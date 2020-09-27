@@ -4,6 +4,7 @@ import { SimpleChanges } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators, FormGroup, FormBuilder, NgForm} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { LoginService} from '../../services/login.service';
 
 @Component({
@@ -24,7 +25,9 @@ export class LoginBlockComponent implements OnInit {
   constructor(
     fb: FormBuilder,
     private login: LoginService,
-    private router: Router) {
+    private router: Router,
+    private authService: AuthService,
+    ) {
       this.options = fb.group({
       });
   }
@@ -55,6 +58,7 @@ export class LoginBlockComponent implements OnInit {
     this.login.setLogin(login.value, password.value);
     if (this.login.user.isLoggedIn === true) {
       console.log('You are logged in');
+      this.authService.login();
       localStorage.setItem('user', login.value);
       localStorage.setItem('password', password.value);
       this.router.navigate(['/search']);

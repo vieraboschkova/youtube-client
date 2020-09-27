@@ -2,7 +2,8 @@
 <button
     *ngIf="data[1]"
     [title]="'Log out?'"
-    class="login">
+    class="login"
+    (click)="onLogOut()">
         <fa-icon [icon]="faUserCircle" ></fa-icon>
 </button>
 <!-- <p> {{ data[1] }} and {{ data[0] }} </p> -->
