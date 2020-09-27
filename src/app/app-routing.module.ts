@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginBlockComponent },
   { path: 'search', canActivate: [AuthGuard], component: SearchResultsComponent },
   { path: 'search/:itemId', canActivate: [AuthGuard], component: DetailedInfoComponent },
+  // { path: 'search/**', component: Page404Component },
   { path: '**', component: Page404Component },
 ];
 
