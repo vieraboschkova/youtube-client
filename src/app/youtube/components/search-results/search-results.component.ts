@@ -29,15 +29,11 @@ export class SearchResultsComponent implements OnInit {
     this.search.increasingWasSet.subscribe(
       (increasing) => this.sortDirection = increasing
     );
-    // this.search.searchWasSet.subscribe(
-    //   (searchAgain) => this.newSearch = searchAgain
-    // );
     console.log('constructor works');
   }
 
   public ngOnInit(): void {
     console.log('oninit works');
-    // this.newSearch = this.search.searchWasSet[0];
   }
 
   sortByDateFromNewest (a, b) {
@@ -58,8 +54,8 @@ export class SearchResultsComponent implements OnInit {
 
   sortArrayOfResults() {
     // this.newSearch = false;
-    console.log(' FROM RESULTS');
-    console.log(this.sortBy, this.sortWord, this.sortDirection);
+    // console.log(' FROM RESULTS');
+    // console.log(this.sortBy, this.sortWord, this.sortDirection);
     switch (this.sortBy) {
       case 'date':
         if (this.search.increasing === true)
@@ -74,7 +70,7 @@ export class SearchResultsComponent implements OnInit {
       case 'word':
         const givenString: string = this.sortWord;
         if (givenString.length < 0 || !givenString) {
-          console.log('no string');
+          // console.log('no string');
           // break;
         } else {
           let filteredResults: ISearchItem[];
@@ -82,7 +78,7 @@ export class SearchResultsComponent implements OnInit {
             return item.snippet.tags.includes(givenString);
             }
           );
-          console.log('sort by words END');
+          // console.log('sort by words END');
           this.itemsArray = filteredResults;
         }
         break;
@@ -91,14 +87,13 @@ export class SearchResultsComponent implements OnInit {
         break;
     }
   }
-  // ngOnChanges() { this.sortArrayOfResults(); }
+
   ngAfterContentChecked() {
     this.sortArrayOfResults();
-    console.log('NEW search: ' + this.search.searchWasSet[0]);
+    // console.log('NEW search: ' + this.search.searchWasSet[0]);
     if (this.search.searchWasSet[0] === true) {
       this.itemsArray = this.searchResponse.items;
-      console.log('new search: ' + this.search.searchWasSet[0])
+      // console.log('new search: ' + this.search.searchWasSet[0])
     }
   }
-
 }

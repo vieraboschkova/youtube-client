@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, ContentChild, DoCheck, ElementRef, EventEmitter, OnChanges, OnDestroy, OnInit, Output, SimpleChange, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ContentChild, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
@@ -30,18 +30,15 @@ export class SearchFormComponent implements OnInit {
     this.data = this.login.getData();
   }
 
-  public onSearchClick(searchInputValue: HTMLInputElement): void {
-    const input = this.searchInputValue.nativeElement.value;
+  public onSearchClick(): void {
     console.log('clicked search');
     this.searchInputValue.nativeElement.value = '';
     if (!this.data[1]) {
       alert('Log in to see the results');
     } else {
-      // this.search.searchWasSet.emit(true);
       this.search.getResults()
       this.router.navigate(['search'])
     }
-
   }
 
   public onFilterClick(): void {
