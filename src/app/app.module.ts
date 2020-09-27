@@ -34,16 +34,16 @@ import { DetailedInfoComponent } from './youtube/components/detailed-info/detail
 import { AuthGuard } from './core/guards/auth.guard'
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
-import { AuthModule } from './auth/auth.module'
+import { AuthModule } from './auth/auth.module';
 @NgModule({
   declarations: [
     AppComponent,
     SearchResultsComponent,
     SearchItemComponent,
-    BottomColorDirective,
-    UnlessDirective,
-    FilterPipe,
-    ShortenTitlePipe,
+    // BottomColorDirective,
+    // UnlessDirective,
+    // FilterPipe,
+    // ShortenTitlePipe,
     Page404Component,
     LoginBlockComponent,
     DetailedInfoComponent,

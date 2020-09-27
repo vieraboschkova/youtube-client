@@ -12,10 +12,19 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { AppRoutingModule } from '../app-routing.module';
 import { LayoutModule } from '@angular/cdk/layout';
+import { BottomColorDirective } from '../youtube/directives/bottom-color.directive';
+import { UnlessDirective } from '../youtube/directives/unless.directive';
+import { FilterPipe } from '../youtube/pipes/filter.pipe';
+import { ShortenTitlePipe } from '../youtube/pipes/shorten-title.pipe';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    BottomColorDirective,
+    UnlessDirective,
+    FilterPipe,
+    ShortenTitlePipe,
+  ],
   imports: [
     CommonModule,
     FontAwesomeModule,
