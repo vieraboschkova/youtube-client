@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { AppRoutingModule } from '../app-routing.module';
+import { LayoutModule } from '@angular/cdk/layout';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { AppRoutingModule } from '../app-routing.module';
     MatIconModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    LayoutModule,
   ],
   exports: [
     FontAwesomeModule,
@@ -43,6 +45,7 @@ import { AppRoutingModule } from '../app-routing.module';
     MatIconModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    LayoutModule,
   ]
 })
 export class SharedModule { }
