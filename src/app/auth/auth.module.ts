@@ -11,6 +11,9 @@ import { LoginBlockComponent } from './components/login-block/login-block.compon
   ],
   imports: [
     SharedModule
+  ],
+  exports: [
+    // LoginBlockComponent,
   ]
 })
 export class AuthModule { }

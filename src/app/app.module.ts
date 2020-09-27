@@ -34,6 +34,7 @@ import { DetailedInfoComponent } from './youtube/components/detailed-info/detail
 import { AuthGuard } from './core/guards/auth.guard'
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { AuthModule } from './auth/auth.module'
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,11 +50,12 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    // AppRoutingModule,
     // FormsModule,
     BrowserAnimationsModule,
     SharedModule,
     CoreModule,
+    AuthModule,
   ],
   providers: [SearchResultsService],
   bootstrap: [AppComponent]
