@@ -31,7 +31,7 @@ import { LoginBlockComponent } from './auth/components/login-block/login-block.c
 import { RouterModule, Routes } from '@angular/router';
 import { DetailedInfoComponent } from './youtube/components/detailed-info/detailed-info.component';
 import { AuthGuard } from './core/guards/auth.guard'
-
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -67,6 +67,7 @@ import { AuthGuard } from './core/guards/auth.guard'
     LayoutModule,
     FontAwesomeModule,
     ReactiveFormsModule,
+    SharedModule,
     // RouterModule.forRoot(appRoutes)
   ],
   providers: [SearchResultsService],
