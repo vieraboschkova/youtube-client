@@ -33,23 +33,16 @@ import { LoginBlockComponent } from './auth/components/login-block/login-block.c
 import { RouterModule, Routes } from '@angular/router';
 import { DetailedInfoComponent } from './youtube/components/detailed-info/detailed-info.component';
 import { AuthGuard } from './core/guards/auth.guard'
-
-const appRoutes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginBlockComponent },
-  { path: 'search', canActivate: [AuthGuard], component: SearchResultsComponent },
-  { path: 'search/:itemId', canActivate: [AuthGuard], component: DetailedInfoComponent },
-  { path: '**', component: Page404Component },
-];
+import { CoreModule } from './core/core.module'
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    // HeaderComponent,
     SearchResultsComponent,
     SearchItemComponent,
-    SearchFormComponent,
-    SearchFilterComponent,
-    LoginComponent,
+    // SearchFormComponent,
+    // SearchFilterComponent,
+    // LoginComponent,
     BottomColorDirective,
     UnlessDirective,
     FilterPipe,
@@ -75,7 +68,7 @@ const appRoutes: Routes = [
     LayoutModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    CoreModule,
   ],
   providers: [SearchResultsService],
   bootstrap: [AppComponent]
