@@ -18,7 +18,7 @@ export class LoginService {
     console.log('Hello from login service: ' + user + ' and ' + password);
     this.user.name = user;
     console.log(this.user)
-    this.user.password = password;
+    // this.user.password = password;
     if (user && password) {
       this.user.isLoggedIn = true;
     }

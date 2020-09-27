@@ -17,7 +17,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatPaginatorModule} from '@angular/material/paginator';
-// import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
@@ -33,6 +32,7 @@ import { LoginBlockComponent } from './auth/components/login-block/login-block.c
 import { RouterModule, Routes } from '@angular/router';
 import { DetailedInfoComponent } from './youtube/components/detailed-info/detailed-info.component';
 import { AuthGuard } from './core/guards/auth.guard'
+<<<<<<< HEAD
 import { CoreModule } from './core/core.module'
 @NgModule({
   declarations: [
@@ -47,16 +47,30 @@ import { CoreModule } from './core/core.module'
     UnlessDirective,
     FilterPipe,
     ShortenTitlePipe,
+=======
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
+import { AuthModule } from './auth/auth.module';
+@NgModule({
+  declarations: [
+    AppComponent,
+    SearchResultsComponent,
+    SearchItemComponent,
+    // BottomColorDirective,
+    // UnlessDirective,
+    // FilterPipe,
+    // ShortenTitlePipe,
+>>>>>>> 8588f1fc98be25ada05d60ad86ba7ac9c995c404
     Page404Component,
     LoginBlockComponent,
     DetailedInfoComponent,
-    // DashboardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
+    // AppRoutingModule,
+    // FormsModule,
     BrowserAnimationsModule,
+<<<<<<< HEAD
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
@@ -69,6 +83,11 @@ import { CoreModule } from './core/core.module'
     FontAwesomeModule,
     ReactiveFormsModule,
     CoreModule,
+=======
+    SharedModule,
+    CoreModule,
+    AuthModule,
+>>>>>>> 8588f1fc98be25ada05d60ad86ba7ac9c995c404
   ],
   providers: [SearchResultsService],
   bootstrap: [AppComponent]
