@@ -32,15 +32,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DetailedInfoComponent } from './youtube/components/detailed-info/detailed-info.component';
 import { AuthGuard } from './core/guards/auth.guard'
 
-const appRoutes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginBlockComponent },
-  { path: 'search', component: SearchResultsComponent },
-  { path: 'search/:itemId', component: DetailedInfoComponent },
-  { path: 'search', canActivate: [AuthGuard], component: SearchResultsComponent },
-  { path: 'search/:itemId', canActivate: [AuthGuard], component: DetailedInfoComponent },
-  { path: '**', component: Page404Component },
-];
+
 @NgModule({
   declarations: [
     AppComponent,
