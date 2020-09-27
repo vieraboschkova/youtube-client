@@ -15,20 +15,20 @@ export class LoginService {
   constructor() { }
 
   setLogin(user, password?) {
-    console.log('Hello from login service: ' + user + ' and ' + password);
+    // console.log('Hello from login service: ' + user + ' and ' + password);
     this.user.name = user;
-    console.log(this.user)
+    // console.log(this.user)
     this.user.password = password;
     if (user && password) {
       this.user.isLoggedIn = true;
     }
     this.clearData();
     this.setData(this.user.name, this.user.isLoggedIn)
-    console.log(this.data);
+    // console.log(this.data);
   }
 
   getUser(){
-    console.log('getting user' + this.user.name);
+    // console.log('getting user' + this.user.name);
     return this.user.name;
   }
   checkIfLoggedIn(){

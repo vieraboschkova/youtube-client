@@ -34,7 +34,7 @@ export class SearchFormComponent implements
   }
 
   ngOnInit(): void { 
-    console.log('ngOnInit works!');
+    // console.log('ngOnInit works!');
     this.data = this.login.getData();
   }
 

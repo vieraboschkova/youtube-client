@@ -24,17 +24,17 @@ export class LoginComponent implements OnInit {
     this.isLoggedIn = this.login.user.isLoggedIn;
     this.name = this.login.getUser();
     this.data = this.login.getData();
-    // console.log('trying' + this.name, this.isLoggedIn);
-    // this.isLoggedFromArray = this.data[0];
   }
+
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes + " changes");
   }
+
   onLogOut() {
     this.authService.logout();
     this.router.navigate(['']);
     this.login.clearData();
     this.login.clearUser();
-
+    localStorage.clear();
   }
 }

@@ -33,11 +33,11 @@ export class LoginBlockComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.username = this.login.getUser();
-    // this.token = this.login.token;
+    console.log('checking for user');
+    if (this.checkLocalStorage()) {
+      console.log('got a user')
+    } else { console.log('aint got a user')}
   }
-
-
 
   getEmailErrorMessage() {
     if (this.email.hasError('required')) {
@@ -45,6 +45,7 @@ export class LoginBlockComponent implements OnInit {
     }
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
+
   getPasswordErrorMessage() {
     if (this.password.hasError('required')) {
       return 'You must enter a value';
@@ -53,25 +54,26 @@ export class LoginBlockComponent implements OnInit {
   }
 
   onSubmit(login: HTMLInputElement, password: HTMLInputElement) {
-    console.log(login.value, password.value);
-    this.checkLocalStorage(login.value, password.value);
     this.login.setLogin(login.value, password.value);
     if (this.login.user.isLoggedIn === true) {
       console.log('You are logged in');
       this.authService.login();
       localStorage.setItem('user', login.value);
       localStorage.setItem('password', password.value);
+      localStorage.setItem('authToken', `${login.value}${Math.floor(Math.random() * 100)}`);
+      console.log(localStorage.authToken)
       this.router.navigate(['/search']);
     } else { alert('Invalid data'); }
 
   }
 
-  checkLocalStorage(username: string, password: string) {
+  checkLocalStorage() {
     console.log(localStorage.getItem('user'));
     console.log(localStorage.getItem('password'));
-    if (localStorage.getItem('user') === username) {
-      console.log('same users');
+    if (localStorage.getItem('user')) {
+      console.log('there was a user');
+      return true;
       /*TOKEN*/
-    }
+    } else { return false; }
   }
 }
