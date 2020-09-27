@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BottomColorDirective } from '../youtube/directives/bottom-color.directive';
 import { UnlessDirective } from '../youtube/directives/unless.directive';
 import { FilterPipe } from '../youtube/pipes/filter.pipe';
@@ -37,6 +37,7 @@ import { ShortenTitlePipe } from '../youtube/pipes/shorten-title.pipe';
         MatMenuModule,
         MatIconModule,
         FormsModule,
+        ReactiveFormsModule,
     ],
     exports: [
         CommonModule,
@@ -55,6 +56,7 @@ import { ShortenTitlePipe } from '../youtube/pipes/shorten-title.pipe';
         UnlessDirective,
         FilterPipe,
         ShortenTitlePipe,
+        ReactiveFormsModule,
     ]
 
 })

@@ -10,28 +10,29 @@ import { SearchFormComponent } from './core/components/search-form/search-form.c
 import { SearchFilterComponent } from './core/components/search-filter/search-filter.component';
 import { LoginComponent } from './core/components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatPaginatorModule} from '@angular/material/paginator';
-// import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+// import {MatInputModule} from '@angular/material/input';
+// import {MatButtonModule} from '@angular/material/button';
+// import {MatCardModule} from '@angular/material/card';
+// import {MatPaginatorModule} from '@angular/material/paginator';
+// // import { DashboardComponent } from './components/dashboard/dashboard.component';
+// import { MatGridListModule } from '@angular/material/grid-list';
+// import { MatMenuModule } from '@angular/material/menu';
+// import { MatIconModule } from '@angular/material/icon';
 import { LayoutModule } from '@angular/cdk/layout';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { BottomColorDirective } from './youtube/directives/bottom-color.directive';
-import { UnlessDirective } from './youtube/directives/unless.directive';
-import { FilterPipe } from './youtube/pipes/filter.pipe';
-import { ShortenTitlePipe } from './youtube/pipes/shorten-title.pipe';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// import { BottomColorDirective } from './youtube/directives/bottom-color.directive';
+// import { UnlessDirective } from './youtube/directives/unless.directive';
+// import { FilterPipe } from './youtube/pipes/filter.pipe';
+// import { ShortenTitlePipe } from './youtube/pipes/shorten-title.pipe';
 import { SearchResultsService } from './core/services/searchResults.service';
 import { Page404Component } from './shared/components/page404/page404.component';
 import { LoginBlockComponent } from './auth/components/login-block/login-block.component';
-import { RouterModule, Routes } from '@angular/router';
+// import { RouterModule, Routes } from '@angular/router';
 import { DetailedInfoComponent } from './youtube/components/detailed-info/detailed-info.component';
-import { AuthGuard } from './core/guards/auth.guard'
+// import { AuthGuard } from './core/guards/auth.guard'
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -66,9 +67,9 @@ import { SharedModule } from './shared/shared.module';
     // MatIconModule,
     LayoutModule,
     // FontAwesomeModule,
-    ReactiveFormsModule,
+    // ReactiveFormsModule,
     SharedModule,
-    // RouterModule.forRoot(appRoutes)
+    CoreModule,
   ],
   providers: [SearchResultsService],
   bootstrap: [AppComponent]

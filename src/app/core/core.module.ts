@@ -1,5 +1,6 @@
 // import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { SharedModule } from '../shared/shared.module';
 // import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 // import { AppRoutingModule } from './app-routing.module';
 // import { AppComponent } from './app.component';
@@ -52,25 +53,10 @@ import { NgModule } from '@angular/core';
     // DashboardComponent
   ],
   imports: [
-    // BrowserModule,
-    // AppRoutingModule,
-    // FormsModule,
-    // BrowserAnimationsModule,
-    // MatFormFieldModule,
-    // MatInputModule,
-    // MatButtonModule,
-    // MatCardModule,
-    // MatPaginatorModule,
-    // MatGridListModule,
-    // MatMenuModule,
-    // MatIconModule,
-    // LayoutModule,
-    // FontAwesomeModule,
-    // ReactiveFormsModule,
-    // RouterModule.forRoot(appRoutes)
+    SharedModule,
   ],
   exports: [
-      
+
   ]
 })
 export class CoreModule { }
