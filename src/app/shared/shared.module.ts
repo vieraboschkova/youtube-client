@@ -39,7 +39,7 @@ import { AppRoutingModule } from '../app-routing.module';
         FormsModule,
         ReactiveFormsModule,
         RouterModule,
-        AppRoutingModule,
+        // AppRoutingModule,
     ],
     exports: [
         CommonModule,
@@ -59,7 +59,7 @@ import { AppRoutingModule } from '../app-routing.module';
         ShortenTitlePipe,
         ReactiveFormsModule,
         RouterModule, 
-        AppRoutingModule,
+        // AppRoutingModule,
     ]
 
 })

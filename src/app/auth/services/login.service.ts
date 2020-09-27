@@ -5,13 +5,7 @@ import {IUser} from '../models/user.model'
 })
 export class LoginService {
   public user: IUser = { isLoggedIn: false, name: '', password: ''};
-  // public user: string;
-  // public token: string;
-  // public password: string;
-  // public isloggedIn: boolean = false;
-  // public userWasSet = new EventEmitter<string>();
   data: any[] = [];
-  // public isloggedIn = new EventEmitter<boolean>();
   constructor() { }
 
   setLogin(user, password?) {

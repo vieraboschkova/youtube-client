@@ -24,8 +24,8 @@ import { AuthModule } from './auth/auth.module';
     LayoutModule,
     SharedModule,
     CoreModule,
-    YoutubeModule,
-    AuthModule,
+    // YoutubeModule,
+    // AuthModule,
   ],
   providers: [SearchResultsService],
   bootstrap: [AppComponent]
