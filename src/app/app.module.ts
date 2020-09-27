@@ -35,7 +35,11 @@ import { DetailedInfoComponent } from './youtube/components/detailed-info/detail
 import { AuthGuard } from './core/guards/auth.guard'
 
 const appRoutes: Routes = [
-
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginBlockComponent },
+  { path: 'search', canActivate: [AuthGuard], component: SearchResultsComponent },
+  { path: 'search/:itemId', canActivate: [AuthGuard], component: DetailedInfoComponent },
+  { path: '**', component: Page404Component },
 ];
 @NgModule({
   declarations: [
@@ -71,7 +75,7 @@ const appRoutes: Routes = [
     LayoutModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    // RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [SearchResultsService],
   bootstrap: [AppComponent]
