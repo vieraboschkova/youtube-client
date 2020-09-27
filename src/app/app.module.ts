@@ -17,6 +17,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatPaginatorModule} from '@angular/material/paginator';
+// import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
@@ -32,30 +33,49 @@ import { LoginBlockComponent } from './auth/components/login-block/login-block.c
 import { RouterModule, Routes } from '@angular/router';
 import { DetailedInfoComponent } from './youtube/components/detailed-info/detailed-info.component';
 import { AuthGuard } from './core/guards/auth.guard'
-import { SharedModule } from './shared/shared.module';
-import { CoreModule } from './core/core.module';
-import { AuthModule } from './auth/auth.module';
+
+const appRoutes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginBlockComponent },
+  { path: 'search', canActivate: [AuthGuard], component: SearchResultsComponent },
+  { path: 'search/:itemId', canActivate: [AuthGuard], component: DetailedInfoComponent },
+  { path: '**', component: Page404Component },
+];
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     SearchResultsComponent,
     SearchItemComponent,
-    // BottomColorDirective,
-    // UnlessDirective,
-    // FilterPipe,
-    // ShortenTitlePipe,
+    SearchFormComponent,
+    SearchFilterComponent,
+    LoginComponent,
+    BottomColorDirective,
+    UnlessDirective,
+    FilterPipe,
+    ShortenTitlePipe,
     Page404Component,
     LoginBlockComponent,
     DetailedInfoComponent,
+    // DashboardComponent
   ],
   imports: [
     BrowserModule,
-    // AppRoutingModule,
-    // FormsModule,
+    AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
-    SharedModule,
-    CoreModule,
-    AuthModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    MatPaginatorModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatIconModule,
+    LayoutModule,
+    FontAwesomeModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [SearchResultsService],
   bootstrap: [AppComponent]
