@@ -33,7 +33,7 @@ import { DetailedInfoComponent } from './youtube/components/detailed-info/detail
 // import { AuthGuard } from './core/guards/auth.guard'
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
-
+import { YoutubeModule } from './youtube/youtube.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,8 +42,8 @@ import { CoreModule } from './core/core.module';
     // SearchFilterComponent,
     // LoginComponent,
     LoginBlockComponent,
-    SearchResultsComponent,
-    SearchItemComponent,
+    // SearchResultsComponent,
+    // SearchItemComponent,
     // BottomColorDirective,
     // UnlessDirective,
     // FilterPipe,
@@ -70,6 +70,7 @@ import { CoreModule } from './core/core.module';
     // ReactiveFormsModule,
     SharedModule,
     CoreModule,
+    YoutubeModule,
   ],
   providers: [SearchResultsService],
   bootstrap: [AppComponent]
