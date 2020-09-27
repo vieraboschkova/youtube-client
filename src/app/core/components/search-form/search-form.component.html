@@ -5,7 +5,6 @@
 
 <form class="header-item">
     <label>
-
     </label>
     <input
         matInput
@@ -28,27 +27,10 @@
     class="header-item filter-button"
     color="accent"
     (click)="onFilterClick()"
+    [disabled]="!data[1]"
     #filterButton>
         <fa-icon 
             class="filter-icon"
             [icon]="faFilter"> 
         </fa-icon>
 </button>
-
-<!-- #searchInput // to use in template then pass in the function as searchInput.value  -->
-<!-- mat-button -->
-
-<!-- <app-search-filter *ngIf = "showFilter; else noSearch"></app-search-filter> -->
-<!-- <ng-template #noSearch>
-    <p>No filters available</p>
-</ng-template> -->
-
-<!-- <ng-content></ng-content> -->
-
-<!-- <input
-        matInput
-        name = "search"
-        type="text"
-        [(ngModel)]="searchValue"
-        #searchInput 
-    > -->

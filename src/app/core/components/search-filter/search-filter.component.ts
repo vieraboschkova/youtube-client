@@ -19,6 +19,7 @@ export class SearchFilterComponent implements OnInit {
   }
 
   public onSelectSortType(sortType: string, word?: string) {
+    this.search.doNotSearch();
     if (!word && sortType === 'word') {
       alert('no string, showing all results');
     }

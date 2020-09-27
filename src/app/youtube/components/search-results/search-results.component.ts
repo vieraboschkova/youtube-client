@@ -10,13 +10,14 @@ import { SearchResultsService} from '../../../core/services/searchResults.servic
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
-  public searchResponse: ISearchResponse = response;
+  public searchResponse: ISearchResponse = this.search.searchResponse;
   public itemsArray: ISearchItem[] = this.searchResponse.items;
   public totalResults: number = this.searchResponse.pageInfo.totalResults;
   public resultsPerPage: number = this.searchResponse.pageInfo.resultsPerPage;
   public sortBy: string = '';
   public sortWord: string = '';
   public sortDirection: boolean = false;
+  public newSearch: boolean;
 
   constructor(private search: SearchResultsService) {
     this.search.sortWasSet.subscribe(
@@ -28,11 +29,15 @@ export class SearchResultsComponent implements OnInit {
     this.search.increasingWasSet.subscribe(
       (increasing) => this.sortDirection = increasing
     );
+    // this.search.searchWasSet.subscribe(
+    //   (searchAgain) => this.newSearch = searchAgain
+    // );
     console.log('constructor works');
   }
 
   public ngOnInit(): void {
     console.log('oninit works');
+    // this.newSearch = this.search.searchWasSet[0];
   }
 
   sortByDateFromNewest (a, b) {
@@ -52,6 +57,7 @@ export class SearchResultsComponent implements OnInit {
   }
 
   sortArrayOfResults() {
+    // this.newSearch = false;
     console.log(' FROM RESULTS');
     console.log(this.sortBy, this.sortWord, this.sortDirection);
     switch (this.sortBy) {
@@ -66,19 +72,19 @@ export class SearchResultsComponent implements OnInit {
         } else {this.itemsArray.sort(this.sortByMostViews); }
         break;
       case 'word':
-        // const givenString: string = this.sortWord;
-        // if (givenString.length < 0 || !givenString) {
-        //   console.log('no string');
-        //   // break;
-        // } else {
-        //   let filteredResults: ISearchItem[];
-        //   filteredResults = this.itemsArray.filter(function (item) {
-        //     return item.snippet.tags.includes(givenString);
-        //     }
-        //   );
-        //   console.log('sort by words END');
-        //   this.itemsArray = filteredResults;
-        // }
+        const givenString: string = this.sortWord;
+        if (givenString.length < 0 || !givenString) {
+          console.log('no string');
+          // break;
+        } else {
+          let filteredResults: ISearchItem[];
+          filteredResults = this.itemsArray.filter(function (item) {
+            return item.snippet.tags.includes(givenString);
+            }
+          );
+          console.log('sort by words END');
+          this.itemsArray = filteredResults;
+        }
         break;
       default:
         console.log('new responses');
@@ -86,6 +92,13 @@ export class SearchResultsComponent implements OnInit {
     }
   }
   // ngOnChanges() { this.sortArrayOfResults(); }
-  ngAfterContentChecked() { this.sortArrayOfResults(); }
+  ngAfterContentChecked() {
+    this.sortArrayOfResults();
+    console.log('NEW search: ' + this.search.searchWasSet[0]);
+    if (this.search.searchWasSet[0] === true) {
+      this.itemsArray = this.searchResponse.items;
+      console.log('new search: ' + this.search.searchWasSet[0])
+    }
+  }
 
 }
