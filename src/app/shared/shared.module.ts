@@ -1,7 +1,6 @@
 // import { } from '';
 import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
-import { Page404Component } from './components/page404/page404.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -16,10 +15,10 @@ import { BottomColorDirective } from '../youtube/directives/bottom-color.directi
 import { UnlessDirective } from '../youtube/directives/unless.directive';
 import { FilterPipe } from '../youtube/pipes/filter.pipe';
 import { ShortenTitlePipe } from '../youtube/pipes/shorten-title.pipe';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
-        // Page404Component,
         BottomColorDirective,
         UnlessDirective,
         FilterPipe,
@@ -38,10 +37,10 @@ import { ShortenTitlePipe } from '../youtube/pipes/shorten-title.pipe';
         MatIconModule,
         FormsModule,
         ReactiveFormsModule,
+        RouterModule
     ],
     exports: [
         CommonModule,
-        // Page404Component,
         FontAwesomeModule,
         MatFormFieldModule,
         MatInputModule,
@@ -57,11 +56,9 @@ import { ShortenTitlePipe } from '../youtube/pipes/shorten-title.pipe';
         FilterPipe,
         ShortenTitlePipe,
         ReactiveFormsModule,
+        RouterModule
     ]
 
 })
 
-
-export class SharedModule {
-
-}
+export class SharedModule {}
