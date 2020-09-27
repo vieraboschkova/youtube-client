@@ -37,18 +37,18 @@ import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    // HeaderComponent,
+    // SearchFormComponent,
+    // SearchFilterComponent,
+    // LoginComponent,
+    LoginBlockComponent,
     SearchResultsComponent,
     SearchItemComponent,
-    SearchFormComponent,
-    SearchFilterComponent,
-    LoginComponent,
     // BottomColorDirective,
     // UnlessDirective,
     // FilterPipe,
     // ShortenTitlePipe,
     Page404Component,
-    LoginBlockComponent,
     DetailedInfoComponent,
     // DashboardComponent
   ],
