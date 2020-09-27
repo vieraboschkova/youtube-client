@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ISearchItem } from '../../models/search-item.model';
 import { ISearchResponse } from '../../models/search-response.model';
 import { response } from '../search-results/response.module';
@@ -20,6 +20,7 @@ export class DetailedInfoComponent implements OnInit {
   currentItem: ISearchItem[];
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -40,6 +41,10 @@ export class DetailedInfoComponent implements OnInit {
       return item.id === id;
     });
     // ADD SERVICE TO DEAL WITH THAT
+  }
+
+  onGoBack(){
+    this.router.navigate(['search']);
   }
 
 }

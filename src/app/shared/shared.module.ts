@@ -16,6 +16,7 @@ import { UnlessDirective } from '../youtube/directives/unless.directive';
 import { FilterPipe } from '../youtube/pipes/filter.pipe';
 import { ShortenTitlePipe } from '../youtube/pipes/shorten-title.pipe';
 import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
     declarations: [
@@ -37,7 +38,8 @@ import { RouterModule } from '@angular/router';
         MatIconModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule
+        RouterModule,
+        AppRoutingModule,
     ],
     exports: [
         CommonModule,
@@ -56,7 +58,8 @@ import { RouterModule } from '@angular/router';
         FilterPipe,
         ShortenTitlePipe,
         ReactiveFormsModule,
-        RouterModule
+        RouterModule, 
+        AppRoutingModule,
     ]
 
 })
