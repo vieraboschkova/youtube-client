@@ -10,12 +10,7 @@ import { LoginService} from './auth/services/login.service';
 })
 export class AppComponent implements OnInit{
   public title: string = 'youtube-client';
-  // public showingResults: boolean = false;
-  public data = [];
-
-  constructor(private login: LoginService) {}
 
   ngOnInit() {
-    this.data = this.login.getData();
   }
 }
