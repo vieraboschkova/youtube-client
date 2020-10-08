@@ -23,9 +23,9 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   public videos: any[];
 
   constructor(private search: SearchResultsService) {
-    this.subscriptions.add(this.search.sortWasSet.subscribe(
+    this.subscriptions = this.search.sortWasSet.subscribe(
       (sort) => this.sortBy = sort
-    ))
+    )
 
     this.subscriptions.add(this.search.wordWasSet.subscribe(
       (word) => this.sortWord = word
@@ -42,7 +42,9 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   }
   public ngOnDestroy(): void {
     console.log('ondestroy works');
-    this.subscriptions.unsubscribe()
+    if (this.subscriptions) {
+      this.subscriptions.unsubscribe()
+    }
   }
 
   sortByDateFromNewest (a, b) {
