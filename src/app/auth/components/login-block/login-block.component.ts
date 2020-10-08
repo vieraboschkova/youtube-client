@@ -1,3 +1,4 @@
+import { coerceCssPixelValue } from '@angular/cdk/coercion';
 import { OnDestroy, ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { SimpleChanges } from '@angular/core';
@@ -7,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { LoginService} from '../../services/login.service';
-
+import { googleAPIKey, clientID } from '../../../../assets/googleAPIKey'
 @Component({
   selector: 'app-login-block',
   templateUrl: './login-block.component.html',
@@ -85,4 +86,47 @@ export class LoginBlockComponent implements OnInit, OnDestroy {
       /*TOKEN*/
     } else { return false; }
   }
+/** */
+  // authButton = document.getElementById('auth')
+  // signOut = document.getElementById('sign-out')
+  // content = document.getElementById('content')
+  // channelForm = document.getElementById('channel-form')
+  // channelInput = document.getElementById('channel-input')
+  // channelData = document.getElementById('channel-data')
+  // videoContainer = document.getElementById('video-container')
+
+  // handleClientLoad() {
+  //   gapi.load('client:auth2', initClient)
+  // }
+
+  // initClient(){
+  //   gapi.client.init({
+  //     // discoveryDocs: a/**/,
+  //     clientID: clientID,
+  //     // scope: SCOPES
+  //   }).then(() => {
+  //     gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
+  //     updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get())
+  //     this.authButton.onclick = handleAuthClick
+  //     this.signOut.onclick = handleSignOutClick
+  //   })
+  // }
+
+  // updateSignInStatus(isSignedIn) {
+  //   if (isSignedIn) {
+  //     console.log('updateSignInStatus')
+  //     getChannel('techguyweb')
+  //   }
+  // }
+
+  // handleAuthClick() {
+  //   gapi.auth2.getAuthInstance().signIn()
+  // }
+  // handleSignOutClick() {
+  //   gapi.auth2.getAuthInstance().signOut()
+  // }
+  
+  // getChannel(channel) {
+  //   console.log('channel')
+  // }
 }

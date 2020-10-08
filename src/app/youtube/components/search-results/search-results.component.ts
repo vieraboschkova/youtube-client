@@ -1,15 +1,16 @@
-import { Component, OnInit, Input, Output, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, OnChanges, OnDestroy } from '@angular/core';
 import { ISearchResponse } from '../../models/search-response.model';
 import { ISearchItem } from 'src/app/youtube/models/search-item.model';
 import { response } from './response.module';
 import { SearchResultsService} from '../../../core/services/searchResults.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss']
 })
-export class SearchResultsComponent implements OnInit {
+export class SearchResultsComponent implements OnInit, OnDestroy {
   public searchResponse: ISearchResponse = this.search.searchResponse;
   public itemsArray: ISearchItem[] = this.searchResponse.items;
   public totalResults: number = this.searchResponse.pageInfo.totalResults;
@@ -18,22 +19,30 @@ export class SearchResultsComponent implements OnInit {
   public sortWord: string = '';
   public sortDirection: boolean = false;
   public newSearch: boolean;
+  public subscriptions: Subscription;
+  public videos: any[];
 
   constructor(private search: SearchResultsService) {
-    this.search.sortWasSet.subscribe(
+    this.subscriptions.add(this.search.sortWasSet.subscribe(
       (sort) => this.sortBy = sort
-    );
-    this.search.wordWasSet.subscribe(
+    ))
+
+    this.subscriptions.add(this.search.wordWasSet.subscribe(
       (word) => this.sortWord = word
-    );
-    this.search.increasingWasSet.subscribe(
+    ))
+
+    this.subscriptions.add(this.search.increasingWasSet.subscribe(
       (increasing) => this.sortDirection = increasing
-    );
+    ))
     console.log('constructor works');
   }
 
   public ngOnInit(): void {
     console.log('oninit works');
+  }
+  public ngOnDestroy(): void {
+    console.log('ondestroy works');
+    this.subscriptions.unsubscribe()
   }
 
   sortByDateFromNewest (a, b) {

@@ -9,26 +9,61 @@
         <mat-form-field appearance="fill">
             <mat-label>Enter your email</mat-label>
             <!-- <input name="email" matInput placeholder="pat@example.com" [formControl]="email" required> -->
-            <input #username name="email" matInput placeholder="pat@example.com" required autofocus>
+            <input 
+                #username 
+                name="email" 
+                matInput 
+                placeholder="pat@example.com" 
+                required 
+                autofocus>
             <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill">
             <mat-label>Enter your password</mat-label>
             <!-- <input name="password" matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required> -->
-            <input #password name="password" matInput [type]="hide ? 'password' : 'text'" required>
+            <input 
+                #password 
+                name="password" 
+                matInput 
+                [type]="hide ? 'password' : 'text'" 
+                required>
             <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
         </mat-form-field>
         <div>
             <button 
                 type="submit" 
                 mat-raised-button 
-                
+                [disabled] = "!loginForm.valid"
                 class="login-submit">
                 Login
             </button>
         </div>
     </form>
+
+    
+    <br>
+    <hr>
+    <button onclick="authenticate().then(loadClient)">authorize and load</button>
+<button onclick="execute()">execute</button>
+<hr>
+    <section>
+        <div>
+            <p>Log</p>
+            <button id="auth">Log in</button>
+            <button id="sign-out">Log out</button>
+            <br>
+            <div id="content">
+                <form action id="channel-form">
+                    <input type="text" name="" placeholder="enter channel name" id="channel-input">
+                    <input type="submit" value="Get data">
+                </form>
+                <div id="channel-data"></div>
+                <div id="video-container"></div>
+            </div>
+            
+        </div>
+    </section>
 </div>
 
 <!-- [routerLink]="['/search']" -->

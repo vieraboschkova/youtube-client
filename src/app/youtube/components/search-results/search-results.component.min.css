@@ -1,1 +1,1 @@
-.results-container{width:inherit;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;padding:50px 150px}
+.results-container{width:inherit;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;height:calc(100vh - 200px);overflow:scroll;padding:50px 150px}

@@ -27,8 +27,8 @@ export class SearchFilterComponent implements OnInit {
     this.sortWordInput.nativeElement.value = '';
     this.search.setType(sortType);
     this.search.setWord(word);
-    this.search.wordWasSet.emit(word);
-    this.search.sortWasSet.emit(sortType);
-    this.search.increasingWasSet.emit(this.search.increasing);
+    this.search.wordWasSet.next(word);
+    this.search.sortWasSet.next(sortType);
+    this.search.increasingWasSet.next(this.search.increasing);
   }
 }
