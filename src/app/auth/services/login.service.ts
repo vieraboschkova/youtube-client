@@ -4,20 +4,20 @@ import {IUser} from '../models/user.model'
   providedIn: 'root'
 })
 export class LoginService {
-  public user: IUser = { isLoggedIn: false, name: '', password: ''};
+  public user: IUser = { name: '' };
   data: any[] = [];
   constructor() { }
 
-  setLogin(user, password?) {
+  setLogin(user) {
     // console.log('Hello from login service: ' + user + ' and ' + password);
     this.user.name = user;
     // console.log(this.user)
-    this.user.password = password;
-    if (user && password) {
-      this.user.isLoggedIn = true;
-    }
+    // this.user.password = password;
+    // if (user) {
+    //   this.user.isLoggedIn = true;
+    // }
     this.clearData();
-    this.setData(this.user.name, this.user.isLoggedIn)
+    this.setData(this.user.name);
     // console.log(this.data);
   }
 
@@ -25,18 +25,18 @@ export class LoginService {
     // console.log('getting user' + this.user.name);
     return this.user.name;
   }
-  checkIfLoggedIn(){
-    console.log('checking if logged');
-    return this.user.isLoggedIn;
-  }
+  // checkIfLoggedIn(){
+  //   console.log('checking if logged');
+  //   return this.user.isLoggedIn;
+  // }
 
   clearUser() {
     this.user.name = '';
-    this.user.isLoggedIn = false;
+    // this.user.isLoggedIn = false;
   }
-  setData(username: string,logged: boolean) {
+  setData(username: string) {
     this.data.push(username);
-    this.data.push(logged);
+    // this.data.push(logged);
   }
   getData() {
     return this.data;

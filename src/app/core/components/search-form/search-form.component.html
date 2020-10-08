@@ -27,7 +27,7 @@
     class="header-item filter-button"
     color="accent"
     (click)="onFilterClick()"
-    [disabled]="!data[1]"
+    [disabled]="!loggedIn"
     #filterButton>
         <fa-icon 
             class="filter-icon"

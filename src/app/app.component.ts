@@ -6,7 +6,7 @@ import { LoginService} from './auth/services/login.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [SearchResultsService, LoginService]
+  providers: []
 })
 export class AppComponent implements OnInit{
   public title: string = 'youtube-client';

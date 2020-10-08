@@ -10,6 +10,8 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { YoutubeModule } from './youtube/youtube.module';
 import { AuthModule } from './auth/auth.module';
+import { LoginService } from './auth/services/login.service';
+import { AuthService } from './core/services/auth.service';
 
 
 @NgModule({
@@ -27,7 +29,7 @@ import { AuthModule } from './auth/auth.module';
     // YoutubeModule,
     // AuthModule,
   ],
-  providers: [SearchResultsService],
+  providers: [SearchResultsService, LoginService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 export interface IUser {
-    isLoggedIn: boolean;
+    // isLoggedIn: boolean;
     name: string;
-    password: string;
+    // password: string;
     // token: string;
 }

@@ -1,9 +1,10 @@
-import { ViewChild } from '@angular/core';
+import { OnDestroy, ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { SimpleChanges } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators, FormGroup, FormBuilder, NgForm} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { LoginService} from '../../services/login.service';
 
@@ -12,13 +13,16 @@ import { LoginService} from '../../services/login.service';
   templateUrl: './login-block.component.html',
   styleUrls: ['./login-block.component.scss']
 })
-export class LoginBlockComponent implements OnInit {
+export class LoginBlockComponent implements OnInit, OnDestroy {
+  private subscriptionToLogger: Subscription;
   email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required, Validators.minLength(8)]);
+  password = new FormControl('', [Validators.required, Validators.minLength(2)]);
   hide = true;
   options: FormGroup;
   username: string;
   token: string;
+  loggedIn: boolean = false;
+  
   // @ViewChild('username', {static: false}) userInput: ElementRef;
   // @ViewChild('password', {static: false}) passwordInput: ElementRef;
   // constructor() { }
@@ -33,12 +37,18 @@ export class LoginBlockComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.subscriptionToLogger = this.authService.wasAuthorized.subscribe(didLog => {
+      this.loggedIn = didLog;
+    })
     console.log('checking for user');
     if (this.checkLocalStorage()) {
       console.log('got a user')
     } else { console.log('aint got a user')}
-  }
 
+  }
+  ngOnDestroy(): void {
+    this.subscriptionToLogger.unsubscribe()
+  }
   getEmailErrorMessage() {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
@@ -54,14 +64,14 @@ export class LoginBlockComponent implements OnInit {
   }
 
   onSubmit(login: HTMLInputElement, password: HTMLInputElement) {
-    this.login.setLogin(login.value, password.value);
-    if (this.login.user.isLoggedIn === true) {
+    if (login.value !== '' && password.value !== '') {
+      this.authService.wasAuthorized.next(true);
+      this.login.setLogin(login.value);
       console.log('You are logged in');
       this.authService.login();
       localStorage.setItem('user', login.value);
-      localStorage.setItem('password', password.value);
-      localStorage.setItem('authToken', `${login.value}${Math.floor(Math.random() * 100)}`);
-      console.log(localStorage.authToken)
+      // localStorage.setItem('authToken', `${login.value}${Math.floor(Math.random() * 100)}`);
+      // console.log(localStorage.authToken)
       this.router.navigate(['/search']);
     } else { alert('Invalid data'); }
 
@@ -69,7 +79,6 @@ export class LoginBlockComponent implements OnInit {
 
   checkLocalStorage() {
     console.log(localStorage.getItem('user'));
-    console.log(localStorage.getItem('password'));
     if (localStorage.getItem('user')) {
       console.log('there was a user');
       return true;
