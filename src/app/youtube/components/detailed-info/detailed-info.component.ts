@@ -4,6 +4,7 @@ import { ISearchItem } from '../../models/search-item.model';
 import { ISearchResponse } from '../../models/search-response.model';
 import { response } from '../search-results/response.module';
 import {faEye, faHeart, faHeartBroken, faCommentAlt, IconDefinition} from '@fortawesome/free-solid-svg-icons';
+import { SearchResultsService } from 'src/app/core/services/searchResults.service';
 
 @Component({
   selector: 'app-detailed-info',
@@ -15,12 +16,14 @@ export class DetailedInfoComponent implements OnInit {
   public faHeart: IconDefinition = faHeart;
   public faHeartBroken: IconDefinition = faHeartBroken;
   public faCommentAlt: IconDefinition = faCommentAlt;
-  items: ISearchItem[] = response.items;
+  // items: ISearchItem[] = response.items;
+  public items: ISearchItem[];
   // itemId: {id: string};
   currentItem: ISearchItem[];
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private search: SearchResultsService
   ) { }
 
   ngOnInit() {
@@ -35,6 +38,7 @@ export class DetailedInfoComponent implements OnInit {
     // this.route.paramMap.subscribe(params => {
     //   this.item = response.items[+params.get(itemId)];
     // });
+    this.items = this.search.videosArray;
     const id: string = this.route.snapshot.params['itemId'];
     this.currentItem = this.items.filter((item) => {
       // item.id === this.itemId;

@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { LoginService} from '../../services/login.service';
 import { googleAPIKey, clientID } from '../../../../assets/googleAPIKey'
+import { SearchResultsService } from 'src/app/core/services/searchResults.service';
 @Component({
   selector: 'app-login-block',
   templateUrl: './login-block.component.html',
@@ -30,6 +31,7 @@ export class LoginBlockComponent implements OnInit, OnDestroy {
   constructor(
     fb: FormBuilder,
     private login: LoginService,
+    private search: SearchResultsService,
     private router: Router,
     private authService: AuthService,
     ) {
@@ -129,4 +131,9 @@ export class LoginBlockComponent implements OnInit, OnDestroy {
   // getChannel(channel) {
   //   console.log('channel')
   // }
+
+  onFetch(searchValue: string){
+    this.search.fetchVideos(searchValue)
+    console.log('trying to fetch')
+  }
 }

@@ -3,24 +3,31 @@ import { ISearchResponse } from '../../models/search-response.model';
 import { ISearchItem } from 'src/app/youtube/models/search-item.model';
 import { response } from './response.module';
 import { SearchResultsService} from '../../../core/services/searchResults.service';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss']
 })
-export class SearchResultsComponent implements OnInit, OnDestroy {
-  public searchResponse: ISearchResponse = this.search.searchResponse;
-  public itemsArray: ISearchItem[] = this.searchResponse.items;
-  public totalResults: number = this.searchResponse.pageInfo.totalResults;
-  public resultsPerPage: number = this.searchResponse.pageInfo.resultsPerPage;
+export class SearchResultsComponent implements OnInit, OnDestroy, OnChanges {
+  // public searchResponse: ISearchResponse = this.search.searchResponse;
+  public searchResponse;
+  // public itemsArray: ISearchItem[] = this.searchResponse.items;
+  public itemsArray: ISearchItem[];
+  // public totalResults: number = this.searchResponse.pageInfo.totalResults;
+  public totalResults: number;
+  // public resultsPerPage: number = this.searchResponse.pageInfo.resultsPerPage;
+  public resultsPerPage: number;
+
   public sortBy: string = '';
   public sortWord: string = '';
   public sortDirection: boolean = false;
   public newSearch: boolean;
   public subscriptions: Subscription;
   public videos: any[];
+  // unsubscribe$: Subject<any> = new Subject();
 
   constructor(private search: SearchResultsService) {
     this.subscriptions = this.search.sortWasSet.subscribe(
@@ -37,14 +44,17 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     console.log('constructor works');
   }
 
-  public ngOnInit(): void {
+  public ngOnInit() {
     console.log('oninit works');
+    
+    // this.itemsArray = this.search.videosArray;
   }
+
   public ngOnDestroy(): void {
     console.log('ondestroy works');
-    if (this.subscriptions) {
-      this.subscriptions.unsubscribe()
-    }
+    // if (this.subscriptions) {
+    //   this.subscriptions.unsubscribe()
+    // }
   }
 
   sortByDateFromNewest (a, b) {
@@ -98,12 +108,18 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
         break;
     }
   }
-
+  ngOnChanges() {
+    console.log(this.sortWord)
+  }
   ngAfterContentChecked() {
+    this.itemsArray = this.search.videosArray;
     this.sortArrayOfResults();
+    // console.log(this.sortWord)
     // console.log('NEW search: ' + this.search.searchWasSet[0]);
     if (this.search.searchWasSet[0] === true) {
-      this.itemsArray = this.searchResponse.items;
+      // this.itemsArray = this.searchResponse.items; //CAHNGE
+      
+      console.log(this.itemsArray)
       // console.log('new search: ' + this.search.searchWasSet[0])
     }
   }

@@ -1,7 +1,7 @@
 export interface ISearchItem {
     kind: string;
     etag: string;
-    id: string;
+    id: any;
     snippet: ISnippet;
     statistics: IStatistics;
 }

@@ -43,12 +43,14 @@ export class SearchFormComponent implements OnInit, OnDestroy {
 
   public onSearchClick(): void {
     console.log('clicked search');
-    this.searchInputValue.nativeElement.value = '';
+    // this.searchInputValue.nativeElement.value = '';
     if (!this.loggedIn) {
       alert('Log in to see the results');
     } else {
-      this.search.getResults()
-      this.router.navigate(['search'])
+      // this.search.typedSearchWord.next(this.searchInputValue.nativeElement.value);
+      // this.search.getResults()
+      // this.router.navigate(['search'])
+      this.search.fetchVideos(this.searchInputValue.nativeElement.value)
     }
   }
 
