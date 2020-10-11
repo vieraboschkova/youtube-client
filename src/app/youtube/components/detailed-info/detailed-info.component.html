@@ -1,20 +1,21 @@
-<div class="detailed-page">
+<mat-spinner *ngIf = "isLoading"></mat-spinner>
+<div class="detailed-page" *ngIf = "currentItem">
     <!-- <button [routerLink]="['/search']">&#60;</button> -->
     <button (click)="onGoBack()">&#60;</button>
     
     <div class="info-container">
         <img 
             class="image"
-            [src]="currentItem[0].snippet.thumbnails.maxres.url">
+            [src]="currentItem.snippet.thumbnails.maxres.url">
         <div class="description-container">
             <div class="title">
-                <h3>{{ currentItem[0].snippet.title }}</h3>
-                <span>{{ currentItem[0].snippet.publishedAt | date }}</span>
+                <h3>{{ currentItem.snippet.title }}</h3>
+                <span>{{ currentItem.snippet.publishedAt | date }}</span>
             </div>
             <div class="description">
                 <h4>Description:</h4>
                 <p>
-                    {{ currentItem[0].snippet.description }}
+                    {{ currentItem.snippet.description }}
                 </p>
             </div>
             <div class="statistics">
@@ -23,28 +24,28 @@
                     class="filter-icon"
                     [icon]="faEye"> 
                     </fa-icon>
-                    {{ currentItem[0].statistics.viewCount}}
+                    {{ currentItem.statistics.viewCount}}
                 </div>
                 <div class="statistics-item">
                     <fa-icon 
                     class="filter-icon"
                     [icon]="faHeart"> 
                     </fa-icon>
-                    {{ currentItem[0].statistics.likeCount}}
+                    {{ currentItem.statistics.likeCount}}
                 </div>
                 <div class="statistics-item">
                     <fa-icon 
                     class="filter-icon"
                     [icon]="faHeartBroken"> 
                     </fa-icon>
-                    {{ currentItem[0].statistics.dislikeCount}}
+                    {{ currentItem.statistics.dislikeCount}}
                 </div>
                 <div class="statistics-item">
                     <fa-icon 
                     class="filter-icon"
                     [icon]="faCommentAlt"> 
                     </fa-icon>
-                    {{ currentItem[0].statistics.commentCount}}
+                    {{ currentItem.statistics.commentCount}}
                 </div>
             </div>
         </div>

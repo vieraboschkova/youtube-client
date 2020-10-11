@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { IUser } from 'src/app/auth/models/user.model';
 import { LoginService } from 'src/app/auth/services/login.service';
 import { AuthService } from '../../services/auth.service';
+import { SearchResultsService } from '../../services/searchResults.service';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit, OnDestroy, OnChanges {
   constructor(
     private router: Router, 
     private login: LoginService, 
-    private authService: AuthService) {
+    private authService: AuthService,
+    private search: SearchResultsService) {
    }
 
   ngOnInit() {
@@ -55,7 +57,7 @@ export class LoginComponent implements OnInit, OnDestroy, OnChanges {
       localStorage.clear();
       this.login.clearUser()
       console.log(this.login.user);
-      
+      this.search.clearSearchResults();
     } else {
       alert('submit correct data in the form')
     }

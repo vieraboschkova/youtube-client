@@ -1,29 +1,32 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import {IUser} from '../models/user.model'
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  public user: IUser = { name: '' };
+  // public user: IUser = { name: '', token: '' };
+  // currentUser = new BehaviorSubject<IUser>(null);
+  user = new BehaviorSubject<IUser>(null);
   data: any[] = [];
   constructor() { }
 
   setLogin(user) {
     // console.log('Hello from login service: ' + user + ' and ' + password);
-    this.user.name = user;
+    // this.user.name = user;
     // console.log(this.user)
     // this.user.password = password;
     // if (user) {
     //   this.user.isLoggedIn = true;
     // }
     this.clearData();
-    this.setData(this.user.name);
+    this.setData(this.user.next());
     // console.log(this.data);
   }
 
   getUser(){
     // console.log('getting user' + this.user.name);
-    return this.user.name;
+    return this.user;
   }
   // checkIfLoggedIn(){
   //   console.log('checking if logged');
@@ -31,7 +34,7 @@ export class LoginService {
   // }
 
   clearUser() {
-    this.user.name = '';
+    this.user.next(null);
     // this.user.isLoggedIn = false;
   }
   setData(username: string) {

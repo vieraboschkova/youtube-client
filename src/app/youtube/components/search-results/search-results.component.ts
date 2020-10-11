@@ -20,7 +20,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy, OnChanges {
   public totalResults: number;
   // public resultsPerPage: number = this.searchResponse.pageInfo.resultsPerPage;
   public resultsPerPage: number;
-
+  public isLoading: boolean;
   public sortBy: string = '';
   public sortWord: string = '';
   public sortDirection: boolean = false;
@@ -41,6 +41,11 @@ export class SearchResultsComponent implements OnInit, OnDestroy, OnChanges {
     this.subscriptions.add(this.search.increasingWasSet.subscribe(
       (increasing) => this.sortDirection = increasing
     ))
+
+    this.subscriptions.add(this.search.isLoading.subscribe(
+      (loading) => this.isLoading = loading
+    ))
+
     console.log('constructor works');
   }
 
@@ -52,9 +57,9 @@ export class SearchResultsComponent implements OnInit, OnDestroy, OnChanges {
 
   public ngOnDestroy(): void {
     console.log('ondestroy works');
-    // if (this.subscriptions) {
-    //   this.subscriptions.unsubscribe()
-    // }
+    if (this.subscriptions) {
+      this.subscriptions.unsubscribe()
+    }
   }
 
   sortByDateFromNewest (a, b) {

@@ -2,15 +2,17 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { ISearchResponse } from 'src/app/youtube/models/search-response.model';
 import { response } from '../../youtube/components/search-results/response.module';
 import { HttpClient } from '@angular/common/http';
-import { map, switchMap } from 'rxjs/operators';
-import { Observable, Subject } from 'rxjs';
+import { finalize, map, switchMap, take } from 'rxjs/operators';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { ISearchItem } from 'src/app/youtube/models/search-item.model';
+import { LoginService } from 'src/app/auth/services/login.service';
 @Injectable({
   providedIn: 'root'
 })
 export class SearchResultsService {
-  private APIUrl = 'https://www.googleapis.com/youtube/v3/';
-  private APIKey = 'AIzaSyCTtv_h_vJLyF1AJbzQ5seAR-s_6AKcgQk';
+  // private APIUrl = 'https://www.googleapis.com/youtube/v3/';
+  // private APIKey = 'AIzaSyCTtv_h_vJLyF1AJbzQ5seAR-s_6AKcgQk';
+  public isLoading: BehaviorSubject<boolean> = new BehaviorSubject(false);
   public sortType: string;
   public sortWord: string;
   public increasing: boolean;
@@ -23,7 +25,9 @@ export class SearchResultsService {
   public searchWasSet: boolean[] = [false];
   public typedSearchWord =  new Subject<string>();
   public videoIds;
-  constructor(public http: HttpClient) { }
+
+
+  constructor(public http: HttpClient, public login: LoginService) { }
 
   logSearch(type: string) {
     console.log('new search type from SERVICE : ' + type);
@@ -44,14 +48,22 @@ export class SearchResultsService {
     this.searchWasSet[0] = true;
     // this.fetchVideos(this.sortWord)
   }
+
+  clearSearchResults() {
+    this.videosArray.length = 0;
+  }
+
   doNotSearch(){
     this.searchWasSet[0] = false;
   }
 
   fetchVideos(searchValue: string) {
+    // this.login.currentUser.pipe(take(1)).subscribe(user => {
+    //   console.log(user)
+    // })
     console.log(searchValue)
-    const url = `${this.APIUrl}search?q=${searchValue}&key=${this.APIKey}&part=snippet&type=video&maxResults=10`;
-
+    const url = `search?q=${searchValue}&part=snippet&type=video&maxResults=10`;
+    this.isLoading.next(true);
     this.http
       .get(url)
       .pipe(
@@ -70,8 +82,9 @@ export class SearchResultsService {
           }
         ),
         switchMap((response: ISearchResponse) => {
-          const urlVideos = `${this.APIUrl}videos?key=${this.APIKey}&id=${response}&part=snippet,statistics`;
-          return this.http.get(urlVideos)
+          const urlVideos = `videos?id=${response}&part=snippet,statistics`;
+          return this.http
+            .get(urlVideos)
             .pipe(
               map(response => {
                 this.videosArray = response.items;
@@ -79,8 +92,23 @@ export class SearchResultsService {
                 return this.videosArray
               })
             )
-        })
-      )  
+        }),
+        finalize(() => this.isLoading.next(false))
+      )
       .subscribe();
+  }
+
+  fetchDetailedInfo(videoId: string) {
+    const url = `videos?id=${videoId}&part=snippet,statistics`;
+    this.isLoading.next(true);
+    return this.http
+      .get(url)
+      .pipe(
+        map((response: ISearchResponse) => {
+          console.log(response)
+          return response;
+        }),
+        finalize(() => this.isLoading.next(false))
+      )
   }
 }

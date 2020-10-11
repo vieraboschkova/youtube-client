@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ISearchItem } from '../../models/search-item.model';
 import { ISearchResponse } from '../../models/search-response.model';
@@ -11,20 +11,26 @@ import { SearchResultsService } from 'src/app/core/services/searchResults.servic
   templateUrl: './detailed-info.component.html',
   styleUrls: ['./detailed-info.component.scss']
 })
-export class DetailedInfoComponent implements OnInit {
+export class DetailedInfoComponent implements OnInit, OnDestroy {
   public faEye: IconDefinition = faEye;
   public faHeart: IconDefinition = faHeart;
   public faHeartBroken: IconDefinition = faHeartBroken;
   public faCommentAlt: IconDefinition = faCommentAlt;
   // items: ISearchItem[] = response.items;
   public items: ISearchItem[];
-  // itemId: {id: string};
-  currentItem: ISearchItem[];
+  public subscriptions: Subscription;
+  public isLoading: boolean;
+  public itemId: string;
+  public currentItem: ISearchItem;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private search: SearchResultsService
-  ) { }
+  ) {
+    this.subscriptions = (this.search.isLoading.subscribe(
+      (loading) => this.isLoading = loading
+    ))
+   }
 
   ngOnInit() {
     // this.itemId = {
@@ -38,13 +44,29 @@ export class DetailedInfoComponent implements OnInit {
     // this.route.paramMap.subscribe(params => {
     //   this.item = response.items[+params.get(itemId)];
     // });
-    this.items = this.search.videosArray;
-    const id: string = this.route.snapshot.params['itemId'];
-    this.currentItem = this.items.filter((item) => {
-      // item.id === this.itemId;
-      return item.id === id;
-    });
+    this.itemId = this.route.snapshot.paramMap.get('itemId');
+    console.log(this.itemId)
+    this.search.fetchDetailedInfo(this.itemId)
+      .subscribe((response) => {
+          this.currentItem = response.items[0]
+          console.log(this.currentItem)
+          return this.currentItem
+        }
+      );
+    
+    // this.items = this.search.videosArray;
+    // const id: string = this.route.snapshot.params['itemId'];
+    // this.currentItem = this.items.filter((item) => {
+    //   // item.id === this.itemId;
+    //   return item.id === id;
+    // });
     // ADD SERVICE TO DEAL WITH THAT
+  }
+  public ngOnDestroy(): void {
+    console.log('ondestroy works');
+    if (this.subscriptions) {
+      this.subscriptions.unsubscribe()
+    }
   }
 
   onGoBack(){

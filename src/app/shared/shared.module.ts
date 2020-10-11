@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BottomColorDirective } from '../youtube/directives/bottom-color.directive';
 import { UnlessDirective } from '../youtube/directives/unless.directive';
@@ -38,6 +39,7 @@ import { YoutubeInterceptor } from '../youtube/services/youtube.inteceptor'
         MatGridListModule,
         MatMenuModule,
         MatIconModule,
+        MatProgressSpinnerModule,
         FormsModule,
         ReactiveFormsModule,
         RouterModule,
@@ -54,6 +56,7 @@ import { YoutubeInterceptor } from '../youtube/services/youtube.inteceptor'
         MatGridListModule,
         MatMenuModule,
         MatIconModule,
+        MatProgressSpinnerModule,
         FormsModule,
         BottomColorDirective,
         UnlessDirective,

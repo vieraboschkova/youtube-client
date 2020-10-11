@@ -1,4 +1,5 @@
 <div class="results-container">
+    <mat-spinner *ngIf = "isLoading"></mat-spinner>
     <app-search-item 
         
         *ngFor = "let item of itemsArray"
