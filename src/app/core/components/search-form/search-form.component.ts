@@ -37,6 +37,7 @@ export class SearchFormComponent implements OnInit, OnDestroy {
       this.loggedIn = didLog;
     })
   }
+  
   ngOnDestroy(): void {
     this.subscriptionToLogger.unsubscribe()
   }
@@ -53,7 +54,9 @@ export class SearchFormComponent implements OnInit, OnDestroy {
       this.search.fetchVideos(this.searchInputValue.nativeElement.value)
     }
   }
-
+  ngAfterContentChecked() {
+    console.log('checking')
+  }
   public onFilterClick(): void {
     console.log('clicked filter');
     if (!this.loggedIn) {

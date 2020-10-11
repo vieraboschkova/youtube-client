@@ -5,6 +5,7 @@ import { ISearchResponse } from '../../models/search-response.model';
 import { response } from '../search-results/response.module';
 import {faEye, faHeart, faHeartBroken, faCommentAlt, IconDefinition} from '@fortawesome/free-solid-svg-icons';
 import { SearchResultsService } from 'src/app/core/services/searchResults.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-detailed-info',
@@ -47,7 +48,7 @@ export class DetailedInfoComponent implements OnInit, OnDestroy {
     this.itemId = this.route.snapshot.paramMap.get('itemId');
     console.log(this.itemId)
     this.search.fetchDetailedInfo(this.itemId)
-      .subscribe((response) => {
+      .subscribe((response: ISearchResponse) => {
           this.currentItem = response.items[0]
           console.log(this.currentItem)
           return this.currentItem
