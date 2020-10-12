@@ -2,7 +2,8 @@ import { Component, ContentChild, ElementRef, EventEmitter, OnDestroy, OnInit, O
 import { Router } from '@angular/router';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
-import { Subscription } from 'rxjs';
+import { fromEvent, Subscription } from 'rxjs';
+import { debounceTime, filter, map, pluck } from 'rxjs/operators';
 import { LoginService} from '../../../auth/services/login.service';
 import { AuthService } from '../../services/auth.service';
 import { SearchResultsService } from '../../services/searchResults.service';
@@ -40,6 +41,7 @@ export class SearchFormComponent implements OnInit, OnDestroy {
   
   ngOnDestroy(): void {
     this.subscriptionToLogger.unsubscribe()
+    console.log('ondestrou')
   }
 
   public onSearchClick(): void {
@@ -54,8 +56,26 @@ export class SearchFormComponent implements OnInit, OnDestroy {
       this.search.fetchVideos(this.searchInputValue.nativeElement.value)
     }
   }
-  ngAfterContentChecked() {
+  ngAfterViewInit() {
     console.log('checking')
+    fromEvent(this.searchInputValue.nativeElement, 'keyup')
+      .pipe(
+        debounceTime(1000),
+        pluck('target', 'value'),
+        filter((value: string) => value.length > 2),
+        map((value) => value)
+      )
+      .subscribe(value => {
+        this.onSearchClick()
+      })
+
+
+  }
+
+  public ngAfterContentChecked() {
+    if (this.loggedIn === false) {
+      this.searchInputValue.nativeElement.value = '';
+    }
   }
   public onFilterClick(): void {
     console.log('clicked filter');
@@ -63,4 +83,5 @@ export class SearchFormComponent implements OnInit, OnDestroy {
       alert('Log in to filter the results');
     } else { this.showFilterEvent.emit(); }
   }
+
 }

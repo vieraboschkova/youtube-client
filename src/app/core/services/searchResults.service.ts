@@ -2,7 +2,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { ISearchResponse } from 'src/app/youtube/models/search-response.model';
 import { response } from '../../youtube/components/search-results/response.module';
 import { HttpClient } from '@angular/common/http';
-import { finalize, map, switchMap, take } from 'rxjs/operators';
+import { debounceTime, finalize, map, switchMap, take } from 'rxjs/operators';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { ISearchItem } from 'src/app/youtube/models/search-item.model';
 import { LoginService } from 'src/app/auth/services/login.service';
@@ -53,6 +53,9 @@ export class SearchResultsService {
   //   this.searchWasSet[0] = true;
   //   // this.fetchVideos(this.sortWord)
   // }
+  getVideos() {
+    return this.videosArray;
+  }
 
   clearSearchResults() {
     this.videosArray.length = 0;
@@ -126,7 +129,7 @@ export class SearchResultsService {
     this.http
       .get(url)
       .pipe(
-        //debounce time?
+        // debounceTime(500),
         map(
           (responseData: ISearchResponse) => {
             console.log(responseData)

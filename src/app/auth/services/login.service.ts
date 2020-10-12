@@ -20,7 +20,7 @@ export class LoginService {
     //   this.user.isLoggedIn = true;
     // }
     this.clearData();
-    this.setData(this.user.next());
+    this.setData(user);
     // console.log(this.data);
   }
 

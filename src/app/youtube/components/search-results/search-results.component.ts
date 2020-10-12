@@ -47,11 +47,12 @@ export class SearchResultsComponent implements OnInit, OnDestroy, OnChanges {
     ))
 
     console.log('constructor works');
+    
   }
 
   public ngOnInit() {
     console.log('oninit works');
-    
+    // this.itemsArray = this.search.getVideos();
     // this.itemsArray = this.search.videosArray;
   }
 
