@@ -163,7 +163,7 @@ export class SearchResultsService {
       .subscribe(
         response => this.videosArray = response,
         // response => console.log('success', response),
-        error => alert('Huston, we have a problem: ' + error)
+        error => alert('Huston, we have a problem! Try again later!')
       // });
       )
   }

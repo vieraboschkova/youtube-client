@@ -52,7 +52,8 @@ export class SearchFormComponent implements OnInit, OnDestroy {
     } else {
       // this.search.typedSearchWord.next(this.searchInputValue.nativeElement.value);
       // this.search.getResults()
-      // this.router.navigate(['search'])
+      this.router.navigate(['search'])
+      this.search.clearSearchResults()
       this.search.fetchVideos(this.searchInputValue.nativeElement.value)
     }
   }

@@ -6,7 +6,7 @@
 <app-login class="login-container"></app-login>
 <!-- <app-search-filter *ngIf = "filterDisplay; else noSearch"></app-search-filter> -->
  <app-search-filter 
-    *ngIf = "filterDisplay"
+    *ngIf = "filterDisplay && loggedIn"
     class="filter"
     >
 </app-search-filter>

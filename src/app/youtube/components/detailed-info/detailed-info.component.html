@@ -1,19 +1,32 @@
-<mat-spinner *ngIf = "isLoading"></mat-spinner>
-<div class="detailed-page" *ngIf = "currentItem">
+<div 
+    [ngClass] = "'spinner'"
+    *ngIf = "isLoading"
+>
+    <mat-spinner></mat-spinner>
+</div>
+
+<div class="detailed-page" *ngIf = "currentItem && !isLoading">
     <!-- <button [routerLink]="['/search']">&#60;</button> -->
-    <button (click)="onGoBack()">&#60;</button>
+    <button 
+    (click)="onGoBack()"
+    [title]="'go back'"
+    >&#60;</button>
     
     <div class="info-container">
         <div class="image-container">
             <img 
             class="image"
-            [src]="currentItem.snippet.thumbnails.maxres.url">
+            [src]="currentItem.snippet.thumbnails.medium.url? 
+                currentItem.snippet.thumbnails.medium.url
+                : 
+                currentItem.snippet.thumbnails.default.url"
+            >
         </div>
 
         <div class="description-container">
             <div class="title">
+                <p>{{ currentItem.snippet.publishedAt | date }}</p>
                 <h3>{{ currentItem.snippet.title }}</h3>
-                <span>{{ currentItem.snippet.publishedAt | date }}</span>
             </div>
             <div class="description">
                 <h4>Description:</h4>
@@ -54,3 +67,6 @@
         </div>
     </div>
 </div>
+
+
+<!-- *ngIf = "isLoading" -->

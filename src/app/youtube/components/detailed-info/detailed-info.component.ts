@@ -52,7 +52,8 @@ export class DetailedInfoComponent implements OnInit, OnDestroy {
           this.currentItem = response.items[0]
           console.log(this.currentItem)
           return this.currentItem
-        }
+        },
+                 (error => console.log(error))
       );
     
     // this.items = this.search.videosArray;

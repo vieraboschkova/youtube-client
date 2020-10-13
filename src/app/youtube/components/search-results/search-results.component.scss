@@ -13,3 +13,13 @@
     // column-gap: 10px;
     // justify-content: center;
 }
+
+.results-item{
+    margin: 0 10px;
+}
+
+mat-spinner{
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+}
