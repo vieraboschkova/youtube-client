@@ -21,12 +21,10 @@ export class SearchFilterComponent implements OnInit {
   }
 
   public onSelectSortType(sortType: string, word?: string) {
-    // this.search.doNotSearch();
-    // this.search.sortArrayOfResults()
     if (!word && sortType === 'word') {
       alert('no string, showing all results');
     } 
-    console.log('filtering')
+    // console.log('filtering')
     this.sortWordInput.nativeElement.value = '';
     // this.search.setType(sortType);
     if (sortType === 'date' || sortType === 'view') {

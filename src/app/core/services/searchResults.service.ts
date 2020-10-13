@@ -129,7 +129,7 @@ export class SearchResultsService {
     this.http
       .get(url)
       .pipe(
-        // debounceTime(500),
+        debounceTime(500),
         map(
           (responseData: ISearchResponse) => {
             console.log(responseData)
@@ -143,21 +143,29 @@ export class SearchResultsService {
             return videoIdsQuery
           }
         ),
-        switchMap((response: ISearchResponse) => {
-          const urlVideos = `videos?id=${response}&part=snippet,statistics`;
+        switchMap((responseData) => {
+          const urlVideos = `videos?id=${responseData}&part=snippet,statistics`;
           return this.http
             .get(urlVideos)
             .pipe(
-              map(response => {
+              map((response: ISearchResponse) => {
                 this.videosArray = response.items;
                 console.log(this.videosArray)
                 return this.videosArray
               })
             )
         }),
+        take(1),
         finalize(() => this.isLoading.next(false))
       )
-      .subscribe();
+      // .subscribe(response => {
+      //   this.videosArray = response,
+      .subscribe(
+        response => this.videosArray = response,
+        // response => console.log('success', response),
+        error => alert('Huston, we have a problem: ' + error)
+      // });
+      )
   }
 
   fetchDetailedInfo(videoId: string) {
@@ -170,7 +178,12 @@ export class SearchResultsService {
           console.log(response)
           return response;
         }),
+        take(1),
         finalize(() => this.isLoading.next(false))
       )
+      // .subscribe(
+      //   response => console.log('success', res),
+      //   error => console.log('oops', error)
+      // )
   }
 }

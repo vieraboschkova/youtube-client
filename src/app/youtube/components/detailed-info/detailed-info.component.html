@@ -4,9 +4,12 @@
     <button (click)="onGoBack()">&#60;</button>
     
     <div class="info-container">
-        <img 
+        <div class="image-container">
+            <img 
             class="image"
             [src]="currentItem.snippet.thumbnails.maxres.url">
+        </div>
+
         <div class="description-container">
             <div class="title">
                 <h3>{{ currentItem.snippet.title }}</h3>

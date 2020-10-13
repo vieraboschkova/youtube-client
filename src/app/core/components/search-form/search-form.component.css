@@ -18,6 +18,7 @@ fa-icon {
   background-color: #2f80ec;
   border: transparent;
   border-radius: 3px;
+  transform: translateY(-1px);
 }
 
 .search-button {
@@ -36,6 +37,7 @@ fa-icon {
   border: 0;
   border-radius: 3px 0 0 3px;
   background-color: #efefef;
+  font-size: smaller;
 }
 
 button:disabled,
