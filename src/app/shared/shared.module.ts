@@ -19,7 +19,8 @@ import { ShortenTitlePipe } from '../youtube/pipes/shorten-title.pipe';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { YoutubeInterceptor } from '../youtube/services/youtube.inteceptor'
+import { YoutubeInterceptor } from '../youtube/services/youtube.inteceptor';
+import {LayoutModule} from '@angular/cdk/layout';
 
 @NgModule({
     declarations: [
@@ -43,6 +44,7 @@ import { YoutubeInterceptor } from '../youtube/services/youtube.inteceptor'
         FormsModule,
         ReactiveFormsModule,
         RouterModule,
+        LayoutModule,
         // AppRoutingModule,
     ],
     exports: [
@@ -63,7 +65,8 @@ import { YoutubeInterceptor } from '../youtube/services/youtube.inteceptor'
         FilterPipe,
         ShortenTitlePipe,
         ReactiveFormsModule,
-        RouterModule, 
+        RouterModule,
+        LayoutModule,
         // AppRoutingModule,
     ],
     providers: [

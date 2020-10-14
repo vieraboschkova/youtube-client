@@ -37,7 +37,7 @@ button {
     background-image: linear-gradient(to bottom right, #e5e5e5, #cecece);
     width: 50%;
     max-height: inherit;
-    overflow-y: scroll;
+    overflow: auto;
 }
 
 .title {
@@ -92,4 +92,20 @@ p {
     position: fixed;
     left: 50vw;
     top: 50vh;
+}
+
+@media (max-width: 449px) {
+    .info-container {
+        max-width: 320px;
+    }
+    .image-container {
+        margin-right: unset;
+    }
+    .description-container {
+        background-image: unset;
+        width: unset;
+    }
+    .image {
+        width: unset;
+    }
 }

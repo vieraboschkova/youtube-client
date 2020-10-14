@@ -45,3 +45,12 @@ button[disabled] {
   background-color: #8eb8f0;
   color: #f2f2f2;
 }
+
+@media (max-width: 449px) {
+  .logo {
+    display: none;
+  }
+  .header-item {
+    padding: 5px 0;
+  }
+}

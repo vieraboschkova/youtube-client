@@ -12,16 +12,23 @@
 
 .filter-input {
   height: 15px;
-  width: 140px;
+  width: 100px;
   padding: 0;
   border: 0;
-  border-radius: 3px 0 0 3px;
+  border-radius: 3px;
   background-color: #fff;
 }
 
 .filter-item {
-  padding: 0 10px;
+  padding: 0 5px;
   margin: 0;
-  font-size: .85em;
+  font-size: .75em;
   cursor: pointer;
+}
+
+@media (max-width: 449px) {
+  .sorting-options {
+    margin-top: unset;
+    flex-direction: column;
+  }
 }

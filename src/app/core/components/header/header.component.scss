@@ -24,3 +24,21 @@
     // visibility: hidden;
     // display: none;
 }
+
+@media (max-width: 699px) {
+    .login-container{
+        // margin-left: unset;
+        grid-column-start: 2;
+        grid-row: 1;
+    }
+}
+
+@media (max-width: 449px) {
+    .search-form-container {
+        flex-direction: column;
+        align-items: flex-end;
+        // margin-left: unset;
+        // grid-column-start: 2;
+        // grid-row: 1;
+    }
+}
