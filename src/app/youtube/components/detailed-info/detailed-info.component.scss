@@ -97,6 +97,8 @@ p {
 @media (max-width: 449px) {
     .info-container {
         max-width: 320px;
+        max-height: unset;
+        margin-bottom: 20px;
     }
     .image-container {
         margin-right: unset;
@@ -104,8 +106,9 @@ p {
     .description-container {
         background-image: unset;
         width: unset;
+        
     }
     .image {
-        width: unset;
+        width: 100%;
     }
 }

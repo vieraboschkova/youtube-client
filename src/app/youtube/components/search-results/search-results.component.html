@@ -3,6 +3,7 @@
     [ngStyle]="{'height': (filterDisplay) ? 'calc(100vh - 222px)' : 'calc(100vh - 172px)'}"
 >
     <mat-spinner *ngIf = "isLoading"></mat-spinner>
+    <!-- <mat-spinner></mat-spinner> -->
     <p *ngIf="itemsArray.length === 0 && isLoading !== true">Type something to see the results!</p>
     <app-search-item 
         

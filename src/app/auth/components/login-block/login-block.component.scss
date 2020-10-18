@@ -22,3 +22,10 @@
 h2 {
     color: #333;
 }
+
+@media (max-width: 449px) {
+    .form-container {
+        width: 100vw;
+        padding: 10px 0;
+    }
+}
