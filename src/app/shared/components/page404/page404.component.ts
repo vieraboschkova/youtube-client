@@ -10,7 +10,7 @@ export class Page404Component implements OnInit {
   public faExlamationTriangle: IconDefinition = faExclamationTriangle;
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }

@@ -16,12 +16,12 @@ export class SearchItemComponent implements OnInit {
   public wasSeen: boolean = true;
   @Input() public item: ISearchItem;
   constructor(private router: Router) { }
- 
+
   public ngOnInit(): void {
   }
 
   public getColor(): string {
-    let timeDifference: number = <any>new Date() - <any>new Date(this.item.snippet.publishedAt)  
+    let timeDifference: number = <any>new Date() - <any>new Date(this.item.snippet.publishedAt);
     timeDifference = timeDifference / 86400000;
     if (timeDifference < 7) {
       return 'blue';
@@ -33,7 +33,7 @@ export class SearchItemComponent implements OnInit {
 
   }
 
-  goToDetailsPage(id) {
+  public goToDetailsPage(id) {
     console.log('check the details of: ' + id);
     this.router.navigate(['search', id]);
   }

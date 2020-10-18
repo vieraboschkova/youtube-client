@@ -1,36 +1,36 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import {IUser} from '../models/user.model'
+import {IUser} from '../models/user.model';
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  user = new BehaviorSubject<IUser>(null);
-  data: any[] = [];
+  public user = new BehaviorSubject<IUser>(null);
+  public data: any[] = [];
   constructor() { }
 
-  setLogin(user) {
+  public setLogin(user) {
     this.clearData();
     this.setData(user);
     // console.log(this.data);
   }
 
-  getUser(){
+  public getUser() {
     // console.log('getting user' + this.user.name);
     return this.user;
   }
 
-  clearUser() {
+  public clearUser() {
     this.user.next(null);
   }
-  setData(username: string) {
+  public setData(username: string) {
     this.data.push(username);
   }
-  getData() {
+  public getData() {
     return this.data;
   }
-  
-  clearData() {
+
+  public clearData() {
     this.data.length = 0;
   }
 }

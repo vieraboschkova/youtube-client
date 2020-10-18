@@ -17,32 +17,31 @@ export class LoginComponent implements OnInit, OnDestroy, OnChanges {
   public faSignInAlt = faSignInAlt;
   public faSignOutAlt = faSignOutAlt;
   public loggedIn: boolean;
-  subscriptionToLogger: Subscription;
-  data = [];
-  isLoggedFromArray: boolean;
-  
+  public subscriptionToLogger: Subscription;
+  public data = [];
+  public isLoggedFromArray: boolean;
 
   constructor(
-    private router: Router, 
-    private login: LoginService, 
+    private router: Router,
+    private login: LoginService,
     private authService: AuthService,
     private search: SearchResultsService) {
    }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.subscriptionToLogger = this.authService.wasAuthorized.subscribe(didLog => {
       this.loggedIn = didLog;
-    })
+    });
     this.data = this.login.getData();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes + " changes");
+  public ngOnChanges(changes: SimpleChanges) {
+    console.log(changes + ' changes');
   }
-  ngOnDestroy(): void {
-    this.subscriptionToLogger.unsubscribe()
+  public ngOnDestroy(): void {
+    this.subscriptionToLogger.unsubscribe();
   }
-  onLoginClick() {
+  public onLoginClick() {
     console.log(this.login.user);
     if (this.loggedIn === true) {
       console.log('logging out');
@@ -51,11 +50,11 @@ export class LoginComponent implements OnInit, OnDestroy, OnChanges {
       this.router.navigate(['']);
       this.login.clearData();
       localStorage.clear();
-      this.login.clearUser()
+      this.login.clearUser();
       console.log(this.login.user);
       this.search.clearSearchResults();
     } else {
-      alert('submit correct data in the form')
+      alert('submit correct data in the form');
     }
   }
 }

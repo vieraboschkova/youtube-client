@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { 
-  CanActivate, 
-  CanActivateChild, 
-  CanDeactivate, 
-  CanLoad, 
-  Route, 
-  UrlSegment, 
-  ActivatedRouteSnapshot, 
-  RouterStateSnapshot, 
-  UrlTree, 
+import {
+  CanActivate,
+  CanActivateChild,
+  CanDeactivate,
+  CanLoad,
+  Route,
+  UrlSegment,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  UrlTree,
   Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
@@ -20,8 +20,8 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   constructor(private authService: AuthService, private router: Router) {
 
   }
-  
-  canActivate(
+
+  public canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.authService.isAuthenticated()
@@ -30,24 +30,24 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
           if (authenticated) {
             return true;
           } else {
-            this.router.navigate([''])
+            this.router.navigate(['']);
           }
         }
-      )
+      );
   }
-  canActivateChild(
+  public canActivateChild(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return true;
   }
-  canDeactivate(
+  public canDeactivate(
     component: unknown,
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return true;
   }
-  canLoad(
+  public canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
     return true;

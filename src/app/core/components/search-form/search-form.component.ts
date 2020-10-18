@@ -19,28 +19,28 @@ export class SearchFormComponent implements OnInit, OnDestroy {
   public faFilter = faFilter;
   public data = [];
   public loggedIn: boolean;
-  subscriptionToLogger: Subscription;
+  public subscriptionToLogger: Subscription;
   @Output() public showFilterEvent = new EventEmitter<void>();
-  @ViewChild('searchInput', {static: false}) searchInputValue: ElementRef;
-  @ContentChild('filterButton', {static: false}) filterButton: ElementRef;
+  @ViewChild('searchInput', {static: false}) public searchInputValue: ElementRef;
+  @ContentChild('filterButton', {static: false}) public filterButton: ElementRef;
 
   constructor(
-    private login: LoginService, 
+    private login: LoginService,
     private router: Router,
     private search: SearchResultsService,
     private authService: AuthService
     ) {
   }
 
-  ngOnInit(): void { 
+  public ngOnInit(): void {
     this.subscriptionToLogger = this.authService.wasAuthorized.subscribe(didLog => {
       this.loggedIn = didLog;
-    })
+    });
   }
-  
-  ngOnDestroy(): void {
-    this.subscriptionToLogger.unsubscribe()
-    console.log('ondestrou')
+
+  public ngOnDestroy(): void {
+    this.subscriptionToLogger.unsubscribe();
+    console.log('ondestrou');
   }
 
   public onSearchClick(): void {
@@ -48,13 +48,13 @@ export class SearchFormComponent implements OnInit, OnDestroy {
     if (!this.loggedIn) {
       alert('Log in to see the results');
     } else {
-      this.router.navigate(['search'])
-      this.search.clearSearchResults()
-      this.search.fetchVideos(this.searchInputValue.nativeElement.value)
+      this.router.navigate(['search']);
+      this.search.clearSearchResults();
+      this.search.fetchVideos(this.searchInputValue.nativeElement.value);
     }
   }
-  ngAfterViewInit() {
-    console.log('checking')
+  public ngAfterViewInit() {
+    console.log('checking');
     fromEvent(this.searchInputValue.nativeElement, 'keyup')
       .pipe(
         debounceTime(1000),
@@ -63,9 +63,8 @@ export class SearchFormComponent implements OnInit, OnDestroy {
         map((value) => value)
       )
       .subscribe(value => {
-        this.onSearchClick()
-      })
-
+        this.onSearchClick();
+      });
 
   }
 

@@ -15,17 +15,17 @@ export class SearchResultsComponent implements OnInit, OnDestroy, OnChanges {
   public totalResults: number;
   public resultsPerPage: number;
   public isLoading: boolean;
-  public filterDisplay: boolean
+  public filterDisplay: boolean;
   public subscriptions: Subscription;
 
   constructor(private search: SearchResultsService, private filter: FilterListenerService) {
 
     this.subscriptions = (this.search.isLoading.subscribe(
       (loading) => this.isLoading = loading
-    ))
+    ));
     this.subscriptions.add(this.filter.filterOn.subscribe(filterOn => {
       this.filterDisplay = filterOn;
-    }))
+    }));
     console.log('constructor works');
   }
 
@@ -36,13 +36,13 @@ export class SearchResultsComponent implements OnInit, OnDestroy, OnChanges {
   public ngOnDestroy(): void {
     console.log('ondestroy works');
     if (this.subscriptions) {
-      this.subscriptions.unsubscribe()
+      this.subscriptions.unsubscribe();
     }
   }
-  ngOnChanges() {
-    console.log('CHANGES from search result')
+  public ngOnChanges() {
+    console.log('CHANGES from search result');
   }
-  ngAfterContentChecked() {
+  public ngAfterContentChecked() {
     this.itemsArray = this.search.videosArray;
       // console.log(this.itemsArray)
   }

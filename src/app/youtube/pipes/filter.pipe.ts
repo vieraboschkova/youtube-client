@@ -6,11 +6,11 @@ import { faPage4 } from '@fortawesome/free-brands-svg-icons';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(
-    value: any, 
-    filterType: string, 
-    filterString: string, 
-    propName: string, 
+  public transform(
+    value: any,
+    filterType: string,
+    filterString: string,
+    propName: string,
     ...args: unknown[]): unknown {
     if (value.length === 0 || filterType !== 'word' || filterString === '') {
       return value;

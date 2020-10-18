@@ -7,13 +7,13 @@ import { LoginService} from './auth/services/login.service';
   styleUrls: ['./app.component.scss'],
   providers: []
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   public title: string = 'youtube-client';
   public data = [];
 
   constructor(private login: LoginService) {}
 
-  ngOnInit() {
+  public ngOnInit() {
     this.data = this.login.getData();
   }
 }

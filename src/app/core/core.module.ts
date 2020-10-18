@@ -5,7 +5,6 @@ import { SearchFormComponent } from '../core/components/search-form/search-form.
 import { SearchFilterComponent } from '../core/components/search-filter/search-filter.component';
 import { LoginComponent } from '../core/components/login/login.component';
 
-
 @NgModule({
   declarations: [
     HeaderComponent,

@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { LoginService} from '../../services/login.service';
-import { googleAPIKey, clientID } from '../../../../assets/googleAPIKey'
+import { googleAPIKey, clientID } from '../../../../assets/googleAPIKey';
 import { SearchResultsService } from 'src/app/core/services/searchResults.service';
 @Component({
   selector: 'app-login-block',
@@ -17,14 +17,14 @@ import { SearchResultsService } from 'src/app/core/services/searchResults.servic
 })
 export class LoginBlockComponent implements OnInit, OnDestroy {
   private subscriptionToLogger: Subscription;
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required, Validators.minLength(2)]);
-  hide = true;
-  options: FormGroup;
-  username: string;
-  token: string;
-  loggedIn: boolean = false;
-  
+  public email = new FormControl('', [Validators.required, Validators.email]);
+  public password = new FormControl('', [Validators.required, Validators.minLength(2)]);
+  public hide = true;
+  public options: FormGroup;
+  public username: string;
+  public token: string;
+  public loggedIn: boolean = false;
+
   constructor(
     fb: FormBuilder,
     private login: LoginService,
@@ -36,34 +36,34 @@ export class LoginBlockComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.subscriptionToLogger = this.authService.wasAuthorized.subscribe(didLog => {
       this.loggedIn = didLog;
-    })
+    });
     console.log('checking for user');
     if (this.checkLocalStorage()) {
-      console.log('got a user')
-    } else { console.log('aint got a user')}
+      console.log('got a user');
+    } else { console.log('aint got a user'); }
 
   }
-  ngOnDestroy(): void {
-    this.subscriptionToLogger.unsubscribe()
+  public ngOnDestroy(): void {
+    this.subscriptionToLogger.unsubscribe();
   }
-  getEmailErrorMessage() {
+  public getEmailErrorMessage() {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
     }
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
-  getPasswordErrorMessage() {
+  public getPasswordErrorMessage() {
     if (this.password.hasError('required')) {
       return 'You must enter a value';
     }
     return this.password.hasError('password') ? 'Not a valid password' : '';
   }
 
-  onSubmit(login: HTMLInputElement, password: HTMLInputElement) {
+  public onSubmit(login: HTMLInputElement, password: HTMLInputElement) {
     if (login.value !== '' && password.value !== '') {
       this.authService.wasAuthorized.next(true);
       this.login.setLogin(login.value);
@@ -75,7 +75,7 @@ export class LoginBlockComponent implements OnInit, OnDestroy {
 
   }
 
-  checkLocalStorage() {
+  public checkLocalStorage() {
     console.log(localStorage.getItem('user'));
     if (localStorage.getItem('user')) {
       console.log('there was a user');
@@ -83,9 +83,9 @@ export class LoginBlockComponent implements OnInit, OnDestroy {
       /*TOKEN*/
     } else { return false; }
   }
-  
-  onFetch(searchValue: string){
-    this.search.fetchVideos(searchValue)
-    console.log('trying to fetch')
+
+  public onFetch(searchValue: string) {
+    this.search.fetchVideos(searchValue);
+    console.log('trying to fetch');
   }
 }

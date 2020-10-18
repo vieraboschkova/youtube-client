@@ -28,17 +28,17 @@ export class DetailedInfoComponent implements OnInit, OnDestroy {
   ) {
     this.subscriptions = (this.search.isLoading.subscribe(
       (loading) => this.isLoading = loading
-    ))
+    ));
    }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.itemId = this.route.snapshot.paramMap.get('itemId');
-    console.log(this.itemId)
+    console.log(this.itemId);
     this.search.fetchDetailedInfo(this.itemId)
       .subscribe((response: ISearchResponse) => {
-          this.currentItem = response.items[0]
-          console.log(this.currentItem)
-          return this.currentItem
+          this.currentItem = response.items[0];
+          console.log(this.currentItem);
+          return this.currentItem;
         },
                  (error => console.log(error))
       );
@@ -46,11 +46,11 @@ export class DetailedInfoComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
     console.log('ondestroy works');
     if (this.subscriptions) {
-      this.subscriptions.unsubscribe()
+      this.subscriptions.unsubscribe();
     }
   }
 
-  onGoBack(){
+  public onGoBack() {
     this.router.navigate(['search']);
   }
 

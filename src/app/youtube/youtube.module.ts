@@ -15,7 +15,7 @@ import { AuthGuard } from '../core/guards/auth.guard';
   imports: [
     SharedModule,
     RouterModule.forChild([{
-      path: '', 
+      path: '',
       canActivate: [AuthGuard],
       component: SearchResultsComponent},
       {

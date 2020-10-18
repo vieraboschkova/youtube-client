@@ -4,12 +4,12 @@ import { Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Render
   selector: '[appBottomColor]'
 })
 export class BottomColorDirective implements OnInit {
-  @Input() cardColor: string = '#e5e5e5';
-  @HostBinding ('style.borderBottomColor') borderBottomColor: string = this.cardColor;
-  
+  @Input() public cardColor: string = '#e5e5e5';
+  @HostBinding ('style.borderBottomColor') public borderBottomColor: string = this.cardColor;
+
   constructor (private elRef: ElementRef, private renderer: Renderer2) {}
 
-  ngOnInit () {
+  public ngOnInit () {
     this.borderBottomColor = this.cardColor;
   }
 }

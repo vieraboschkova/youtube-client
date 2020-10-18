@@ -5,7 +5,7 @@ import { debounceTime, finalize, map, switchMap, take } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { ISearchItem } from 'src/app/youtube/models/search-item.model';
 import { LoginService } from 'src/app/auth/services/login.service';
-import { FilterListenerService } from '../../shared/services/filter-listener.service'
+import { FilterListenerService } from '../../shared/services/filter-listener.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,47 +15,44 @@ export class SearchResultsService {
   public videosArray = [];
   public videoIds;
 
-
   constructor(
-    public http: HttpClient, 
-    public login: LoginService, 
+    public http: HttpClient,
+    public login: LoginService,
     public filterListener: FilterListenerService
   ) { }
 
-  logSearch(type: string) {
+  public logSearch(type: string) {
     console.log('new search type from SERVICE : ' + type);
   }
 
-  getVideos() {
+  public getVideos() {
     return this.videosArray;
   }
 
-  clearSearchResults() {
+  public clearSearchResults() {
     this.videosArray.length = 0;
   }
 
-  sortByDateFromNewest (a, b) {
+  public sortByDateFromNewest (a, b) {
     return <any>new Date(b.snippet.publishedAt) - <any>new Date(a.snippet.publishedAt);
   }
 
-  sortByDateFromOldest (a, b) {
+  public sortByDateFromOldest (a, b) {
     return <any>new Date(a.snippet.publishedAt) - <any>new Date(b.snippet.publishedAt);
   }
 
-  sortByMostViews (a, b) {
+  public sortByMostViews (a, b) {
     return a.statistics.viewCount - b.statistics.viewCount;
   }
 
-  sortByLeastViews (a, b) {
+  public sortByLeastViews (a, b) {
     return b.statistics.viewCount - a.statistics.viewCount;
   }
 
-  sortArrayOfResults(sortType, sortDown, sortWord) {
+  public sortArrayOfResults(sortType, sortDown, sortWord) {
     switch (sortType) {
       case 'date':
-        if (sortDown === true)
-          {this.videosArray.sort(this.sortByDateFromNewest);} else
-          {this.videosArray.sort(this.sortByDateFromOldest);}
+        if (sortDown === true) {this.videosArray.sort(this.sortByDateFromNewest); } else {this.videosArray.sort(this.sortByDateFromOldest); }
         break;
       case 'view':
         if (sortDown === true) {
@@ -82,8 +79,8 @@ export class SearchResultsService {
     }
   }
 
-  fetchVideos(searchValue: string) {
-    console.log(searchValue)
+  public fetchVideos(searchValue: string) {
+    console.log(searchValue);
     const url = `search?q=${searchValue}&part=snippet&type=video&maxResults=10`;
     this.isLoading.next(true);
     this.http
@@ -92,15 +89,15 @@ export class SearchResultsService {
         debounceTime(500),
         map(
           (responseData: ISearchResponse) => {
-            console.log(responseData)
+            console.log(responseData);
             this.videoIds = responseData.items.map((item) => {
               // console.log(this.videoIds)
-              return item.id.videoId
-            })
-            console.log(this.videoIds)
-            const videoIdsQuery = this.videoIds.join(',')
-            console.log(videoIdsQuery)
-            return videoIdsQuery
+              return item.id.videoId;
+            });
+            console.log(this.videoIds);
+            const videoIdsQuery = this.videoIds.join(',');
+            console.log(videoIdsQuery);
+            return videoIdsQuery;
           }
         ),
         switchMap((responseData) => {
@@ -110,10 +107,10 @@ export class SearchResultsService {
             .pipe(
               map((response: ISearchResponse) => {
                 this.videosArray = response.items;
-                console.log(this.videosArray)
-                return this.videosArray
+                console.log(this.videosArray);
+                return this.videosArray;
               })
-            )
+            );
         }),
         take(1),
         finalize(() => this.isLoading.next(false))
@@ -121,21 +118,21 @@ export class SearchResultsService {
       .subscribe(
         response => this.videosArray = response,
         () => alert('Huston, we have a problem! Try again later!')
-      )
+      );
   }
 
-  fetchDetailedInfo(videoId: string) {
+  public fetchDetailedInfo(videoId: string) {
     const url = `videos?id=${videoId}&part=snippet,statistics`;
     this.isLoading.next(true);
     return this.http
       .get(url)
       .pipe(
         map((response: ISearchResponse) => {
-          console.log(response)
+          console.log(response);
           return response;
         }),
         take(1),
         finalize(() => this.isLoading.next(false))
-      )
+      );
   }
 }

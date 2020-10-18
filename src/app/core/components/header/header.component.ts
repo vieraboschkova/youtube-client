@@ -17,29 +17,29 @@ export class HeaderComponent implements OnInit {
 
   constructor(private filter: FilterListenerService, private auth: AuthService) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.subscriptions = this.auth.wasAuthorized.subscribe(didLog => {
       this.loggedIn = didLog;
-    })
+    });
     this.subscriptions.add(this.filter.filterOn.subscribe(filterOn => {
       this.filterDisplay = filterOn;
-    }))
+    }));
     console.log('constructor works');
   }
 
   public ngOnDestroy(): void {
     console.log('ondestroy works');
-    console.log(this.filter.filterOn.value)
+    console.log(this.filter.filterOn.value);
     if (this.subscriptions) {
-      this.subscriptions.unsubscribe()
+      this.subscriptions.unsubscribe();
     }
   }
 
-  filterToggle() {
+  public filterToggle() {
     console.log('toggling filter');
     this.filter.filterOn.next(!this.filter.filterOn.value);
   }
-  showResponse (): void {
+  public showResponse (): void {
     console.log('showing response');
     this.showResults.emit();
   }

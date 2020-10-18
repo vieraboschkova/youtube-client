@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
   exports: [
     SharedModule,
     LoginBlockComponent,
-    
+
   ]
 })
 

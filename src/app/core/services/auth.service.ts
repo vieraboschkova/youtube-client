@@ -5,26 +5,26 @@ import { BehaviorSubject, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  
-  loggedIn: boolean = false;
-  wasAuthorized = new Subject<boolean>();
+
+  public loggedIn: boolean = false;
+  public wasAuthorized = new Subject<boolean>();
   constructor() { }
-  
-  isAuthenticated() {
+
+  public isAuthenticated() {
     const authPromise = new Promise(
       (resolve, reject) => {
         setTimeout(() => {
           resolve(this.loggedIn);
-        }, 600);
+        },         600);
       }
-    )
+    );
     return authPromise;
   }
 
-  login(){
+  public login() {
     this.loggedIn = true;
   }
-  logout(){
+  public logout() {
     this.loggedIn = false;
   }
 }
