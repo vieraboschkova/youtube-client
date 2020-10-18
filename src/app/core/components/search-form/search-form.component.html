@@ -1,0 +1,29 @@
+<fa-icon 
+    [icon]="faYoutube" 
+    class="header-item logo">
+</fa-icon>
+
+<form class="header-item">
+    <label>
+    </label>
+    <input
+        matInput
+        class="search-input"
+        name = "search"
+        type="text"
+        #searchInput 
+        placeholder="Type minimum 3 letters"
+    >
+</form>
+
+<button 
+    class="header-item filter-button"
+    color="accent"
+    (click)="onFilterClick()"
+    [disabled]="!loggedIn"
+    #filterButton>
+        <fa-icon 
+            class="filter-icon"
+            [icon]="faFilter"> 
+        </fa-icon>
+</button>

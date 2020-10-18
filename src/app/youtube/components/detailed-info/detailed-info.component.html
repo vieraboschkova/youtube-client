@@ -1,0 +1,68 @@
+<div 
+    [ngClass] = "'spinner'"
+    *ngIf = "isLoading"
+>
+    <mat-spinner></mat-spinner>
+</div>
+
+<div class="detailed-page" *ngIf = "currentItem && !isLoading">
+    <button 
+    (click)="onGoBack()"
+    [title]="'go back'"
+    >&#60;</button>
+    
+    <div class="info-container">
+        <div class="image-container">
+            <img 
+            class="image"
+            [src]="currentItem.snippet.thumbnails.medium.url? 
+                currentItem.snippet.thumbnails.medium.url
+                : 
+                currentItem.snippet.thumbnails.default.url"
+            >
+        </div>
+
+        <div class="description-container">
+            <div class="title">
+                <p>{{ currentItem.snippet.publishedAt | date }}</p>
+                <h3>{{ currentItem.snippet.title }}</h3>
+            </div>
+            <div class="description">
+                <h4>Description:</h4>
+                <p>
+                    {{ currentItem.snippet.description }}
+                </p>
+            </div>
+            <div class="statistics">
+                <div class="statistics-item">
+                    <fa-icon 
+                    class="filter-icon"
+                    [icon]="faEye"> 
+                    </fa-icon>
+                    {{ currentItem.statistics.viewCount}}
+                </div>
+                <div class="statistics-item">
+                    <fa-icon 
+                    class="filter-icon"
+                    [icon]="faHeart"> 
+                    </fa-icon>
+                    {{ currentItem.statistics.likeCount}}
+                </div>
+                <div class="statistics-item">
+                    <fa-icon 
+                    class="filter-icon"
+                    [icon]="faHeartBroken"> 
+                    </fa-icon>
+                    {{ currentItem.statistics.dislikeCount}}
+                </div>
+                <div class="statistics-item">
+                    <fa-icon 
+                    class="filter-icon"
+                    [icon]="faCommentAlt"> 
+                    </fa-icon>
+                    {{ currentItem.statistics.commentCount}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

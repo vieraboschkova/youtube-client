@@ -1,0 +1,25 @@
+<div class="sorting-options">
+    <p class="filter-item">Sorting by:</p>
+    <a 
+        (click) = "onSelectSortType(this.sortingOption === 'date'? 'dateDown' : 'date')"
+         
+        class="button" 
+        class="filter-name filter-item">
+        date</a>
+    <a 
+        (click) = "onSelectSortType(this.sortingOption === 'view'? 'viewDown' : 'view')"
+        
+        class="button" 
+        class="filter-name filter-item">
+        count of views</a>
+    <a
+        (click) = "onSelectSortType('word', filterWord.value)"
+         
+        class="button" 
+        class="filter-name filter-item">
+        word or sentence</a>
+    <input
+        #filterWord
+        tybuttone="text"
+        class="filter-input filter-item">
+</div>

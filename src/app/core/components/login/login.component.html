@@ -1,0 +1,10 @@
+<p class="login">Hello {{ loggedIn ? data[0] : 'stranger!' }}</p>
+
+<button
+    [title]="loggedIn ? 'Log out?' : 'Log in'"
+    class="login"
+    (click)="onLoginClick()">
+    <fa-icon *ngIf="loggedIn" [icon]="faSignInAlt" ></fa-icon>
+    <fa-icon *ngIf="!loggedIn" [icon]="faSignOutAlt" ></fa-icon>
+</button>
+

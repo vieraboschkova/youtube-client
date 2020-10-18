@@ -1,22 +1,16 @@
 .results-container {
-    width: inherit;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    padding: 50px 150px;
-    // display: grid;
-    // grid-template-columns: repeat(4, auto);
-    // column-gap: 10px;
-    // justify-content: center;
 }
 
 .header-container {
     background-color: #e5e5e5;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    justify-content: center;
-    padding: 10px 150px;
+    padding: 10px 15px;
+    justify-items: center;
+    overflow: hidden;
+}
+
+app-root {
+    position: relative;
 }
 

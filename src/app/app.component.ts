@@ -1,25 +1,19 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LoginService} from './auth/services/login.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: []
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public title: string = 'youtube-client';
-  public showingResults: boolean = false;
-  public sortType: string;
-  public sortWord: string;
-  showResults (keywords) {
-    console.log('showing from app' + keywords);
-    this.showingResults = true;
-  }
-  getSortType(type: string){
-    console.log('APP knows the type: ' + type);
-    this.sortType = type;
-  }
-  getSortWord(word: string){
-    console.log('APP knows the word: ' + word);
-    this.sortWord = word;
+  public data = [];
+
+  constructor(private login: LoginService) {}
+
+  public ngOnInit() {
+    this.data = this.login.getData();
   }
 }

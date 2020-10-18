@@ -1,0 +1,54 @@
+<mat-card
+    appBottomColor
+    [cardColor]="getColor()" 
+    [ngClass] = "{conditional: wasSeen === false}"
+    class="item"    
+>
+    <img 
+        class="thumbnail"
+        mat-card-image
+        [src]="item.snippet.thumbnails.medium.url? item.snippet.thumbnails.medium.url: item.snippet.thumbnails.default.url"
+    >
+    <div class="statistics">
+        <p>
+            <fa-icon 
+            class="filter-icon"
+            [icon]="faEye"> 
+            </fa-icon>
+            {{ item.statistics.viewCount}}
+        </p>
+        <p>
+            <fa-icon 
+            class="filter-icon"
+            [icon]="faHeart"> 
+            </fa-icon>
+            {{ item.statistics.likeCount}}
+        </p>
+        <p>
+            <fa-icon 
+            class="filter-icon"
+            [icon]="faHeartBroken"> 
+            </fa-icon>
+            {{ item.statistics.dislikeCount}}
+        </p>
+        <p>
+            <fa-icon 
+            class="filter-icon"
+            [icon]="faCommentAlt"> 
+            </fa-icon>
+            {{ item.statistics.commentCount}}
+        </p>
+    </div>
+    <mat-card-title class="video-title">{{ item.snippet.title | uppercase | shortenTitle: 35 }}</mat-card-title>
+    <mat-card-actions>
+        <button 
+            color="primary"
+            class="bottom-button"
+            (click)="goToDetailsPage(item.id)"
+            
+            >
+            more...
+        </button>
+    </mat-card-actions>
+
+</mat-card>
