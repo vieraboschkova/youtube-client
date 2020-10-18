@@ -2,26 +2,11 @@
     class="search-form-container"
     (showFilterEvent)="filterToggle()"
     (showResponseEvent)="showResponse()"
-></app-search-form>
+>
+</app-search-form>
 <app-login class="login-container"></app-login>
-<!-- <app-search-filter *ngIf = "filterDisplay; else noSearch"></app-search-filter> -->
  <app-search-filter 
     *ngIf = "filterDisplay && loggedIn"
     class="filter"
     >
 </app-search-filter>
-<!-- <div 
-    appBottomColor
-    [defaultColor]="'blue'"
-    [oldColor]="'yellow'"
-    [cardColor]="'pink'"
-    [ngStyle]="{'border-bottom-width':'2px', 'border-bottom-style':'solid'}"
-    >Bottom Color directive
-</div> -->
-
-<!-- <div [ngSwitch]="value">
-    <p *ngSwitchCase="5">5</p>
-    <p *ngSwitchCase="10">10</p>
-    <p *ngSwitchCase="15">15</p>
-    <p *ngSwitchDefault>0</p>
-</div> -->

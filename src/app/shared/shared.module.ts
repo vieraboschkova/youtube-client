@@ -17,7 +17,6 @@ import { UnlessDirective } from '../youtube/directives/unless.directive';
 import { FilterPipe } from '../youtube/pipes/filter.pipe';
 import { ShortenTitlePipe } from '../youtube/pipes/shorten-title.pipe';
 import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from '../app-routing.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { YoutubeInterceptor } from '../youtube/services/youtube.inteceptor';
 import {LayoutModule} from '@angular/cdk/layout';
@@ -67,7 +66,6 @@ import {LayoutModule} from '@angular/cdk/layout';
         ReactiveFormsModule,
         RouterModule,
         LayoutModule,
-        // AppRoutingModule,
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: YoutubeInterceptor, multi: true}

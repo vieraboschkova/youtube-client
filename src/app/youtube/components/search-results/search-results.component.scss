@@ -5,13 +5,8 @@
     flex-wrap: wrap;
     justify-content: space-around;
     height: calc(100vh - 222px);
-    // overflow: scroll ;
     padding: 50px 15px;
     overflow: auto;
-    // display: grid;
-    // grid-template-columns: repeat(4, auto);
-    // column-gap: 10px;
-    // justify-content: center;
 }
 
 .results-item{

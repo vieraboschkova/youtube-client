@@ -1,10 +1,7 @@
-import { Component, OnInit, Input, Output, OnChanges, OnDestroy } from '@angular/core';
-import { ISearchResponse } from '../../models/search-response.model';
+import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { ISearchItem } from 'src/app/youtube/models/search-item.model';
-import { response } from './response.module';
 import { SearchResultsService} from '../../../core/services/searchResults.service';
-import { Subject, Subscription } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 import { FilterListenerService } from 'src/app/shared/services/filter-listener.service';
 
 @Component({
@@ -13,22 +10,13 @@ import { FilterListenerService } from 'src/app/shared/services/filter-listener.s
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit, OnDestroy, OnChanges {
-  // public searchResponse: ISearchResponse = this.search.searchResponse;
   public searchResponse;
-  // public itemsArray: ISearchItem[] = this.searchResponse.items;
   public itemsArray: ISearchItem[];
-  // public totalResults: number = this.searchResponse.pageInfo.totalResults;
   public totalResults: number;
-  // public resultsPerPage: number = this.searchResponse.pageInfo.resultsPerPage;
   public resultsPerPage: number;
   public isLoading: boolean;
   public filterDisplay: boolean
-  // public sortBy: string = '';
-  // public sortWord: string = '';
-  // public sortDirection: boolean = false;
-  // public newSearch: boolean;
   public subscriptions: Subscription;
-  // public videos: any[];
 
   constructor(private search: SearchResultsService, private filter: FilterListenerService) {
 

@@ -1,17 +1,10 @@
 <p class="login">Hello {{ loggedIn ? data[0] : 'stranger!' }}</p>
-<!-- <p class="login">Hello {{ loggedIn ? name : 'stranger!' }}</p> -->
 
 <button
-     
     [title]="loggedIn ? 'Log out?' : 'Log in'"
     class="login"
     (click)="onLoginClick()">
-    
     <fa-icon *ngIf="loggedIn" [icon]="faSignInAlt" ></fa-icon>
     <fa-icon *ngIf="!loggedIn" [icon]="faSignOutAlt" ></fa-icon>
-
 </button>
-<!-- <p> {{ data[1] }} and {{ data[0] }} </p> -->
-<!-- *ngIf="data[1]" -->
-<!-- <p *ngIf="data[1]" class="login">Hello {{ data[0] }}</p> -->
 

@@ -1,5 +1,3 @@
-<!-- [ngStyle] = "{borderBottomColor: getColor()}" -->
-
 <mat-card
     appBottomColor
     [cardColor]="getColor()" 
@@ -42,7 +40,6 @@
         </p>
     </div>
     <mat-card-title class="video-title">{{ item.snippet.title | uppercase | shortenTitle: 35 }}</mat-card-title>
-    <!-- <mat-card-subtitle>{{ item.snippet.publishedAt}}</mat-card-subtitle> -->
     <mat-card-actions>
         <button 
             color="primary"
@@ -52,16 +49,6 @@
             >
             more...
         </button>
-        <!-- <p>{{item.id}}</p> -->
     </mat-card-actions>
 
 </mat-card>
-<!-- (click)="goToDetailsPage(item.id.videoId)" -->
-<!-- <p>{{item.kind}}</p> -->
-        <!-- mat-card-image -->
-        <!-- [src]="item.pathOrStg" BY BINDING--> 
-        <!-- OR -->
-        <!-- src = "{{ item.pathOrStg }}"  STRING INTERPOLATION-->
-
-        <!-- (click)="goToDetailsPage(item.id)" -->
-        <!-- [routerLink]="['/search', this.item.id]" -->

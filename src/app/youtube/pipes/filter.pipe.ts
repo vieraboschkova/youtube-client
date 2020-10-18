@@ -2,8 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { faPage4 } from '@fortawesome/free-brands-svg-icons';
 
 @Pipe({
-  name: 'filter'/*,
-  pure: false  default true; recalculates on changes, careful!  */
+  name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
 

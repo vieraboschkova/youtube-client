@@ -13,7 +13,6 @@ export class SearchItemComponent implements OnInit {
   public faHeart: IconDefinition = faHeart;
   public faHeartBroken: IconDefinition = faHeartBroken;
   public faCommentAlt: IconDefinition = faCommentAlt;
-  // public age: number = Math.random() * (500);
   public wasSeen: boolean = true;
   @Input() public item: ISearchItem;
   constructor(private router: Router) { }

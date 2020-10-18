@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { SearchResultsService } from './core/services/searchResults.service';
+import { Component, OnInit } from '@angular/core';
 import { LoginService} from './auth/services/login.service';
 
 @Component({
@@ -10,7 +9,6 @@ import { LoginService} from './auth/services/login.service';
 })
 export class AppComponent implements OnInit{
   public title: string = 'youtube-client';
-  // public showingResults: boolean = false;
   public data = [];
 
   constructor(private login: LoginService) {}

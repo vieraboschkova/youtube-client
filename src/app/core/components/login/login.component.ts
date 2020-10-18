@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit, OnDestroy, OnChanges {
   public faUserCircle = faUserCircle;
   public faSignInAlt = faSignInAlt;
   public faSignOutAlt = faSignOutAlt;
-  // public name: string;
   public loggedIn: boolean;
   subscriptionToLogger: Subscription;
   data = [];
@@ -34,8 +33,6 @@ export class LoginComponent implements OnInit, OnDestroy, OnChanges {
     this.subscriptionToLogger = this.authService.wasAuthorized.subscribe(didLog => {
       this.loggedIn = didLog;
     })
-    // this.isLoggedIn = this.authService.loggedIn;
-    // this.name = this.login.user.name;
     this.data = this.login.getData();
   }
 
@@ -53,7 +50,6 @@ export class LoginComponent implements OnInit, OnDestroy, OnChanges {
       this.authService.logout();
       this.router.navigate(['']);
       this.login.clearData();
-      // this.login.clearUser();
       localStorage.clear();
       this.login.clearUser()
       console.log(this.login.user);

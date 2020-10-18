@@ -25,9 +25,6 @@ export class LoginBlockComponent implements OnInit, OnDestroy {
   token: string;
   loggedIn: boolean = false;
   
-  // @ViewChild('username', {static: false}) userInput: ElementRef;
-  // @ViewChild('password', {static: false}) passwordInput: ElementRef;
-  // constructor() { }
   constructor(
     fb: FormBuilder,
     private login: LoginService,
@@ -73,8 +70,6 @@ export class LoginBlockComponent implements OnInit, OnDestroy {
       console.log('You are logged in');
       this.authService.login();
       localStorage.setItem('user', login.value);
-      // localStorage.setItem('authToken', `${login.value}${Math.floor(Math.random() * 100)}`);
-      // console.log(localStorage.authToken)
       this.router.navigate(['/search']);
     } else { alert('Invalid data'); }
 
@@ -88,50 +83,7 @@ export class LoginBlockComponent implements OnInit, OnDestroy {
       /*TOKEN*/
     } else { return false; }
   }
-/** */
-  // authButton = document.getElementById('auth')
-  // signOut = document.getElementById('sign-out')
-  // content = document.getElementById('content')
-  // channelForm = document.getElementById('channel-form')
-  // channelInput = document.getElementById('channel-input')
-  // channelData = document.getElementById('channel-data')
-  // videoContainer = document.getElementById('video-container')
-
-  // handleClientLoad() {
-  //   gapi.load('client:auth2', initClient)
-  // }
-
-  // initClient(){
-  //   gapi.client.init({
-  //     // discoveryDocs: a/**/,
-  //     clientID: clientID,
-  //     // scope: SCOPES
-  //   }).then(() => {
-  //     gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
-  //     updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get())
-  //     this.authButton.onclick = handleAuthClick
-  //     this.signOut.onclick = handleSignOutClick
-  //   })
-  // }
-
-  // updateSignInStatus(isSignedIn) {
-  //   if (isSignedIn) {
-  //     console.log('updateSignInStatus')
-  //     getChannel('techguyweb')
-  //   }
-  // }
-
-  // handleAuthClick() {
-  //   gapi.auth2.getAuthInstance().signIn()
-  // }
-  // handleSignOutClick() {
-  //   gapi.auth2.getAuthInstance().signOut()
-  // }
   
-  // getChannel(channel) {
-  //   console.log('channel')
-  // }
-
   onFetch(searchValue: string){
     this.search.fetchVideos(searchValue)
     console.log('trying to fetch')

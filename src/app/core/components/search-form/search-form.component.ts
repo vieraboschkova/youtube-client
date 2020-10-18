@@ -33,7 +33,6 @@ export class SearchFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void { 
-    // this.data = this.login.getData();
     this.subscriptionToLogger = this.authService.wasAuthorized.subscribe(didLog => {
       this.loggedIn = didLog;
     })
@@ -46,12 +45,9 @@ export class SearchFormComponent implements OnInit, OnDestroy {
 
   public onSearchClick(): void {
     console.log('clicked search');
-    // this.searchInputValue.nativeElement.value = '';
     if (!this.loggedIn) {
       alert('Log in to see the results');
     } else {
-      // this.search.typedSearchWord.next(this.searchInputValue.nativeElement.value);
-      // this.search.getResults()
       this.router.navigate(['search'])
       this.search.clearSearchResults()
       this.search.fetchVideos(this.searchInputValue.nativeElement.value)

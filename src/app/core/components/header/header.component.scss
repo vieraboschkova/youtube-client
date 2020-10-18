@@ -6,10 +6,6 @@
     align-items: center;
 }
 
-* {
-    // outline: 2px dotted blueviolet;
-}
-
 .search-form-container {
     display: flex;
     flex-direction: row;
@@ -21,13 +17,10 @@
 .filter {
     text-align: center;
     grid-column-start: 2;
-    // visibility: hidden;
-    // display: none;
 }
 
 @media (max-width: 699px) {
     .login-container{
-        // margin-left: unset;
         grid-column-start: 2;
         grid-row: 1;
     }
@@ -37,8 +30,5 @@
     .search-form-container {
         flex-direction: column;
         align-items: flex-end;
-        // margin-left: unset;
-        // grid-column-start: 2;
-        // grid-row: 1;
     }
 }

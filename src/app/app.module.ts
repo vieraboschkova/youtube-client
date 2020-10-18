@@ -8,8 +8,6 @@ import { SearchResultsService } from './core/services/searchResults.service';
 import { Page404Component } from './shared/components/page404/page404.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
-import { YoutubeModule } from './youtube/youtube.module';
-import { AuthModule } from './auth/auth.module';
 import { LoginService } from './auth/services/login.service';
 import { AuthService } from './core/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -28,8 +26,6 @@ import { HttpClientModule } from '@angular/common/http';
     LayoutModule,
     SharedModule,
     CoreModule,
-    // YoutubeModule,
-    // AuthModule,
   ],
   providers: [SearchResultsService, LoginService, AuthService],
   bootstrap: [AppComponent]

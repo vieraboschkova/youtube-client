@@ -1,5 +1,4 @@
-import { prepareSyntheticListenerFunctionName } from '@angular/compiler/src/render3/util';
-import { Component, OnInit, Output, ViewChild, EventEmitter, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SearchResultsService} from '../../services/searchResults.service';
 import { FilterListenerService } from '../../../shared/services/filter-listener.service'
 @Component({
@@ -24,9 +23,7 @@ export class SearchFilterComponent implements OnInit {
     if (!word && sortType === 'word') {
       alert('no string, showing all results');
     } 
-    // console.log('filtering')
     this.sortWordInput.nativeElement.value = '';
-    // this.search.setType(sortType);
     if (sortType === 'date' || sortType === 'view') {
       if (this.filterListener.sortingBy.value === sortType) {
         // console.log(this.filterListener.sortingBy.value)
@@ -40,13 +37,13 @@ export class SearchFilterComponent implements OnInit {
       this.filterListener.filteringInput.next(word)
       this.filterListener.sortingBy.next(sortType)
     }
-    console.log(this.filterListener.sortingBy.value)
-    console.log(this.filterListener.sortingDown.value)
-    console.log(this.filterListener.filteringInput.value)
+    // console.log(this.filterListener.sortingBy.value)
+    // console.log(this.filterListener.sortingDown.value)
+    // console.log(this.filterListener.filteringInput.value)
     this.search.sortArrayOfResults(
-      this.filterListener.sortingBy.value, 
+      this.filterListener.sortingBy.value,
       this.filterListener.sortingDown.value,
-      this.filterListener.filteringInput.value 
-      )
+      this.filterListener.filteringInput.value
+    )
   }
 }
