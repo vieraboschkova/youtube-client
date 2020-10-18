@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
     this.subscriptions.add(this.filter.filterOn.subscribe(filterOn => {
       this.filterDisplay = filterOn;
     }));
-    console.log('constructor works');
+    // console.log('constructor works');
   }
 
   public ngOnDestroy(): void {

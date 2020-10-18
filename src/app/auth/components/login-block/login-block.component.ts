@@ -40,9 +40,9 @@ export class LoginBlockComponent implements OnInit, OnDestroy {
     this.subscriptionToLogger = this.authService.wasAuthorized.subscribe(didLog => {
       this.loggedIn = didLog;
     });
-    console.log('checking for user');
+    // console.log('checking for user');
     if (this.checkLocalStorage()) {
-      console.log('got a user');
+      // console.log('got a user');
     } else { console.log('aint got a user'); }
 
   }
@@ -67,7 +67,7 @@ export class LoginBlockComponent implements OnInit, OnDestroy {
     if (login.value !== '' && password.value !== '') {
       this.authService.wasAuthorized.next(true);
       this.login.setLogin(login.value);
-      console.log('You are logged in');
+      // console.log('You are logged in');
       this.authService.login();
       localStorage.setItem('user', login.value);
       this.router.navigate(['/search']);
@@ -76,9 +76,9 @@ export class LoginBlockComponent implements OnInit, OnDestroy {
   }
 
   public checkLocalStorage() {
-    console.log(localStorage.getItem('user'));
+    // console.log(localStorage.getItem('user'));
     if (localStorage.getItem('user')) {
-      console.log('there was a user');
+      // console.log('there was a user');
       return true;
       /*TOKEN*/
     } else { return false; }

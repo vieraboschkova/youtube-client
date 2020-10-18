@@ -26,21 +26,21 @@ export class SearchResultsComponent implements OnInit, OnDestroy, OnChanges {
     this.subscriptions.add(this.filter.filterOn.subscribe(filterOn => {
       this.filterDisplay = filterOn;
     }));
-    console.log('constructor works');
+    // console.log('constructor works');
   }
 
   public ngOnInit() {
-    console.log('oninit works');
+    // console.log('oninit works');
   }
 
   public ngOnDestroy(): void {
-    console.log('ondestroy works');
+    // console.log('ondestroy works');
     if (this.subscriptions) {
       this.subscriptions.unsubscribe();
     }
   }
   public ngOnChanges() {
-    console.log('CHANGES from search result');
+    // console.log('CHANGES from search result');
   }
   public ngAfterContentChecked() {
     this.itemsArray = this.search.videosArray;

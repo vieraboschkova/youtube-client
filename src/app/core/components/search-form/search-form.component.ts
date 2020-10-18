@@ -44,7 +44,7 @@ export class SearchFormComponent implements OnInit, OnDestroy {
   }
 
   public onSearchClick(): void {
-    console.log('clicked search');
+    // console.log('clicked search');
     if (!this.loggedIn) {
       alert('Log in to see the results');
     } else {
@@ -54,7 +54,7 @@ export class SearchFormComponent implements OnInit, OnDestroy {
     }
   }
   public ngAfterViewInit() {
-    console.log('checking');
+    // console.log('checking');
     fromEvent(this.searchInputValue.nativeElement, 'keyup')
       .pipe(
         debounceTime(1000),

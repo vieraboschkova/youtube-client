@@ -34,7 +34,7 @@ export class SearchItemComponent implements OnInit {
   }
 
   public goToDetailsPage(id) {
-    console.log('check the details of: ' + id);
+    // console.log('check the details of: ' + id);
     this.router.navigate(['search', id]);
   }
 }

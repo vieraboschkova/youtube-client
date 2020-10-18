@@ -36,22 +36,22 @@ export class LoginComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   public ngOnChanges(changes: SimpleChanges) {
-    console.log(changes + ' changes');
+    // console.log(changes + ' changes');
   }
   public ngOnDestroy(): void {
     this.subscriptionToLogger.unsubscribe();
   }
   public onLoginClick() {
-    console.log(this.login.user);
+    // console.log(this.login.user);
     if (this.loggedIn === true) {
-      console.log('logging out');
+      // console.log('logging out');
       this.authService.wasAuthorized.next(false);
       this.authService.logout();
       this.router.navigate(['']);
       this.login.clearData();
       localStorage.clear();
       this.login.clearUser();
-      console.log(this.login.user);
+      // console.log(this.login.user);
       this.search.clearSearchResults();
     } else {
       alert('submit correct data in the form');

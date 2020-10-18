@@ -22,7 +22,7 @@ export class SearchResultsService {
   ) { }
 
   public logSearch(type: string) {
-    console.log('new search type from SERVICE : ' + type);
+    // console.log('new search type from SERVICE : ' + type);
   }
 
   public getVideos() {
@@ -52,7 +52,9 @@ export class SearchResultsService {
   public sortArrayOfResults(sortType, sortDown, sortWord) {
     switch (sortType) {
       case 'date':
-        if (sortDown === true) {this.videosArray.sort(this.sortByDateFromNewest); } else {this.videosArray.sort(this.sortByDateFromOldest); }
+        if (sortDown === true) {
+          this.videosArray.sort(this.sortByDateFromNewest); 
+        } else {this.videosArray.sort(this.sortByDateFromOldest); }
         break;
       case 'view':
         if (sortDown === true) {
@@ -80,7 +82,7 @@ export class SearchResultsService {
   }
 
   public fetchVideos(searchValue: string) {
-    console.log(searchValue);
+    // console.log(searchValue);
     const url = `search?q=${searchValue}&part=snippet&type=video&maxResults=10`;
     this.isLoading.next(true);
     this.http
@@ -89,14 +91,14 @@ export class SearchResultsService {
         debounceTime(500),
         map(
           (responseData: ISearchResponse) => {
-            console.log(responseData);
+            // console.log(responseData);
             this.videoIds = responseData.items.map((item) => {
               // console.log(this.videoIds)
               return item.id.videoId;
             });
-            console.log(this.videoIds);
+            // console.log(this.videoIds);
             const videoIdsQuery = this.videoIds.join(',');
-            console.log(videoIdsQuery);
+            // console.log(videoIdsQuery);
             return videoIdsQuery;
           }
         ),
@@ -107,7 +109,7 @@ export class SearchResultsService {
             .pipe(
               map((response: ISearchResponse) => {
                 this.videosArray = response.items;
-                console.log(this.videosArray);
+                // console.log(this.videosArray);
                 return this.videosArray;
               })
             );
@@ -128,7 +130,7 @@ export class SearchResultsService {
       .get(url)
       .pipe(
         map((response: ISearchResponse) => {
-          console.log(response);
+          // console.log(response);
           return response;
         }),
         take(1),
