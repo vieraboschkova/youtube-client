@@ -1,14 +1,10 @@
-import { coerceCssPixelValue } from '@angular/cdk/coercion';
-import { OnDestroy, ViewChild } from '@angular/core';
-import { ElementRef } from '@angular/core';
-import { SimpleChanges } from '@angular/core';
+import { OnDestroy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators, FormGroup, FormBuilder, NgForm} from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import {FormControl, Validators, FormGroup, FormBuilder} from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { LoginService} from '../../services/login.service';
-import { googleAPIKey, clientID } from '../../../../assets/googleAPIKey';
 import { SearchResultsService } from 'src/app/core/services/searchResults.service';
 @Component({
   selector: 'app-login-block',
